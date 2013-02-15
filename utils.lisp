@@ -18,10 +18,6 @@
 
 (setf (cl-who:html-mode) :html5)
 
-(defmacro string-who (string-list)
-  `(loop for list in ,string-list
-	collect `(:p ,list)))
-
 (defun string-list->html (string-list)
   (cl-who:with-html-output-to-string (*standard-output* nil :indent t :prologue t)
     (cl-who:htm
@@ -36,7 +32,3 @@
 	 (loop for string in (rest string-list) do
 	     (cl-who:htm (:p (cl-who:esc string))))))
        (:footer "Here be the footer of the page")))))
-
-
-
-       
