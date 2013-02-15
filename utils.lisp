@@ -20,8 +20,5 @@
   ;;(assert (cl-f:regular-file-exists-p src-file))
   ;;(assert (osicat:directory-exists-p dest-dir))
   (let ((file-name-wo-ext (pathname-name src-file)))
-    (pathname (concatenate
-	       'string
-	       (directory-namestring (cl-fad:directory-pathname-p dest-dir))
-	       file-name-wo-ext extension))))
+    (pathname (format nil "~a~a~a" dest-dir file-name-wo-ext extension))))
 

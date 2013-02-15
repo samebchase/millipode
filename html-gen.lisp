@@ -33,4 +33,3 @@
 		    (loop for string in (rest string-list) do
 			 (cl-who:htm (:p (cl-who:esc string))))))
 	 (:footer "Here be the footer of the page")))))))
-
