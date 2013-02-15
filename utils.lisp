@@ -21,4 +21,3 @@
   ;;(assert (osicat:directory-exists-p dest-dir))
   (let ((file-name-wo-ext (pathname-name src-file)))
     (pathname (format nil "~a~a~a" dest-dir file-name-wo-ext extension))))
-

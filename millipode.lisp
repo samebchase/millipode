@@ -13,6 +13,4 @@
 (defun generate-index (webpage-path)
   (alexandria:write-string-into-file
    (generate-index-html webpage-path)
-   (pathname (concatenate 'string (directory-namestring *webpage-path*) "index.html"))))
-
-
+   (pathname (format nil "~a~a" *webpage-path* "index.html"))))
