@@ -12,5 +12,6 @@
 	       #:cl-ppcre)
   :components ((:file "package")
 	       (:file "utils")
+	       (:file "html-gen")
                (:file "millipode")))
 

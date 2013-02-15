@@ -17,8 +17,8 @@
     string-list))
 
 (defun change-extension (src-file dest-dir extension)
-  (assert (osicat:regular-file-exists-p src-file))
-  (assert (osicat:directory-exists-p dest-dir))
+  ;;(assert (cl-f:regular-file-exists-p src-file))
+  ;;(assert (osicat:directory-exists-p dest-dir))
   (let ((file-name-wo-ext (pathname-name src-file)))
     (pathname (concatenate
 	       'string
