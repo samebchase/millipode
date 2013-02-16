@@ -4,7 +4,7 @@
 
 (defun generate-index-html (pathspec)
   (let ((file-list (cl-fad:list-directory pathspec)))
-    (cl-who:with-html-output-to-string (*standard-output* nil :indent t)
+    (cl-who:with-html-output-to-string (*standard-output* nil :indent t :prologue t)
       (cl-who:htm
        (:html
 	(:head
@@ -32,4 +32,4 @@
 		   (cl-who:htm
 		    (loop for string in (rest string-list) do
 			 (cl-who:htm (:p (cl-who:esc string))))))
-	 (:footer "Here be the footer of the page")))))))
+	 (:footer "fin.")))))))

@@ -7,10 +7,11 @@
 	     (cl-fad:directory-exists-p *webpage-path*)))
 
 (defun generate-post (filepath webpage-path)
-  (format t "Generating html for: ~a.~%" filepath)
+  (format t "millipoding: ~a.~%" (pathname-name filepath))
   (alexandria:write-string-into-file
    (gen-blog-post-html filepath)
-   (merge-pathnames webpage-path (pathname-name filepath))))
+   (merge-pathnames webpage-path (pathname-name filepath))
+   :if-exists :overwrite))
 
 (defun generate-all-posts (content-path webpage-path)
   (let ((file-list (cl-fad:list-directory content-path)))
@@ -18,9 +19,12 @@
 	 (generate-post filepath webpage-path))))
 
 (defun generate-index (webpage-path)
-  (alexandria:write-string-into-file
-   (generate-index-html webpage-path)
-   (pathname (format nil "~a~a" *webpage-path* "index.html"))))
+  (prog1 (format t "Generated index.")
+    (alexandria:write-string-into-file 
+     (generate-index-html webpage-path)
+     (pathname (format nil "~a~a" *webpage-path* "index.html"))
+     :if-exists :overwrite)))
 
-(generate-all-posts *content-path* *webpage-path*)
-(generate-index *webpage-path*)
+(defun millipode ()
+  (generate-all-posts *content-path* *webpage-path*)
+  (generate-index *webpage-path*))
