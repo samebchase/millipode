@@ -13,9 +13,10 @@
 	(:title "Blog Index"))
        (:body
 	(:h3 "All Posts")
-	(loop for file in file-list
-	   do
-	     (cl-who:htm (:a :href file (cl-who:esc (pathname-name file))) :br))))))))
+	(cl-who:htm
+	 (loop for file in file-list
+	    do
+	      (cl-who:htm (:a :href file (cl-who:esc (pathname-name file))) :br)))))))))
 
 (defun gen-blog-post-html (pathspec)
   (let ((string-list (list-of-strings pathspec)))
@@ -31,5 +32,5 @@
 		   (:h3 (cl-who:esc (first string-list)))
 		   (cl-who:htm
 		    (loop for string in (rest string-list) do
-			 (cl-who:htm (:p (cl-who:esc string))))))
-	 (:footer "fin.")))))))
+			 (cl-who:htm (:p (cl-who:esc string))))))))))))
+
