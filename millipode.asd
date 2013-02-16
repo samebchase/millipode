@@ -6,10 +6,11 @@
   :depends-on (#:alexandria
                #:cl-fad
                #:cl-who
-               #:iterate
+               #:css-lite
 	       #:cl-ppcre)
   :components ((:file "package")
 	       (:file "utils")
+	       (:file "style")
 	       (:file "html-gen")
                (:file "millipode")))
 

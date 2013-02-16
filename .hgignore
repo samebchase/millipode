@@ -4,6 +4,6 @@ syntax: glob
 *.lib
 *~
 load
-todo.org
+to-do.org
 \#*
 .\#*
