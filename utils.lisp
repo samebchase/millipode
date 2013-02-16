@@ -1,10 +1,10 @@
 (in-package :millipode)
 
-(defun list-files (pathspec)
-  (cl-fad:list-directory pathspec))
+(defun ls (dir)
+  (cl-fad:list-directory dir))
 
-(defun list-files-with-extension (pathspec suffix)
-  (loop for pathname in (list-files pathspec)
+(defun ls-ext (dir suffix)
+  (loop for pathname in (ls dir)
        when (string= (pathname-type pathname) suffix) collect pathname))
 
 (defun list-of-strings (pathspec)
@@ -14,3 +14,7 @@
 (defun path-str (pathspec)
   "Returns pathname as string"
   (format nil "~a" pathspec))
+
+(defun delete-files (pathspec)
+  (loop for file in (list-files pathspec)
+     do (when (not (cl-fad:directory-pathname-p file)) (delete-file file))))

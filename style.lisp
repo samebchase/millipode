@@ -5,7 +5,7 @@
   (css-lite:css-string
 
     ((:body)
-     ((:width "70%")
+     ((:width "42%")
       (:background-color grey)))
 
     )))
