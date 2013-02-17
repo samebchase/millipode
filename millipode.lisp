@@ -1,16 +1,17 @@
 (in-package #:millipode)
 
-(defparameter *content-path* (cl-fad:pathname-as-directory "../content/"))
-(defparameter *webpage-path* (cl-fad:pathname-as-directory "../pages/"))
-(defparameter *style-path* (cl-fad:pathname-as-directory "../style/"))
+(defparameter *content-dir* (cl-fad:pathname-as-directory "../content/"))
+(defparameter *webpage-dir* (cl-fad:pathname-as-directory "../pages/"))
+(defparameter *style-dir* (cl-fad:pathname-as-directory "../style/"))
 
-;; TODO if these directories don't exist, create them
-(assert (and (cl-fad:directory-exists-p *webpage-path*)
-	     (cl-fad:directory-exists-p *content-path*)
-	     (cl-fad:directory-exists-p *style-path*)))
+(defun init-dirs ()
+  (mapcar #'ensure-directories-exist '(*webpage-dir* *content-dir* *style-dir*)))
 
+(defun status ()
+  (format t "Modified content:~%~{~a~%~}" (list-modified-content *content-dir* *webpage-dir*))
+  (format t "New content:~%~{~a~%~}"      (list-new-content      *content-dir* *webpage-dir*)))
 
-(defun pode ()
-  (generate-all-posts *content-path* *webpage-path*)
-  (generate-index *webpage-path*)
-  (generate-style *style-path*))
+(defun gen ()
+  (generate-new-posts      *content-dir* *webpage-dir*)
+  (generate-modified-posts *content-dir* *webpage-dir*)
+  (generate-style          *style-dir*))
