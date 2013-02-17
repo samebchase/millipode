@@ -8,14 +8,14 @@
       (cl-who:htm
        (:html
 	(:head
-	(:link :href "style/style.css" :rel "stylesheet" :type "text/css" :media "screen")
-	(:link :rel "icon" :type "image/png" :href "../images/favicon.png")
-	(:title "Blog Index"))
+	(:link :href "../css/style.css" :rel "stylesheet" :type "text/css" :media "screen")
+	(:link :rel "icon" :type "image/png" :href "../img/s.png")
+	(:title "index"))
        (:body
-	(:h3 "All Posts")
+	(:h3 "posts")
 	(cl-who:htm
-	 (loop for file in file-list
-	    do
+	 (loop for file in file-list 
+	    unless (string= (pathname-name file) "index") do
 	      (cl-who:htm (:a :href file (cl-who:esc (pathname-name file))) :br)))))))))
 
 (defun gen-blog-post-html (dir)
@@ -24,8 +24,8 @@
       (cl-who:htm
        (:html
 	(:head
-	 (:link :href "../style/style.css" :rel "stylesheet" :type "text/css" :media "screen")
-	 (:link :rel "icon" :type "image/png" :href "../images/favicon.png")
+	 (:link :href "../css/style.css" :rel "stylesheet" :type "text/css" :media "screen")
+	 (:link :rel "icon" :type "image/png" :href "../img/s.png")
 	 (:title (cl-who:esc (first string-list))))
 	(:body
 	 (:article :class "post"

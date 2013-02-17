@@ -11,7 +11,7 @@
   (prog1 (format t "Generating the index.~%")
     (alexandria:write-string-into-file 
      (generate-index-html webpage-dir)
-     (pathname (merge-pathnames #P"../" #P"index"))
+     (pathname (merge-pathnames webpage-dir #P"index"))
      :if-exists :supersede :if-does-not-exist :create)))
 
 (defun generate-style (style-dir)
