@@ -4,7 +4,7 @@
   (prog1 (format t "Generating: ~a.~%" (pathname-name filepath))
     (alexandria:write-string-into-file
      (gen-blog-post-html filepath)
-     (webpage-file-name filepath webpage-dir)
+     (webpage-file filepath webpage-dir)
      :if-exists :supersede :if-does-not-exist :create)))
 
 (defun generate-index (webpage-dir)

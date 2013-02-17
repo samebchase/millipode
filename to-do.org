@@ -1,14 +1,21 @@
 * DONE overwriting files
 * DONE cool URLs
 * DONE path <=> string
-* TODO smart generation
+* DONE smart generation
+* TODO style
+** DONE basic stylesheet
+** TODO Back to index/home
+** TODO fix styling on index.
+   The list of links under the h3 "posts" needs to be fixed.
+** TODO background-colour
+** TODO layout
 * TODO ordering of posts
   ** Ordered and unordered posts?
   ** 23-feb-2012-23-12-fishing or 2012:feb:23-fishing.txt
   ** elisp function to save files in the date-time format 
-* TODO stylesheet
 * TODO (:link)
 * TODO (:img)
 * TODO (:code)
 * TODO (:quote)
+* TODO help
 * TODO easy deployment
