@@ -43,7 +43,7 @@
 	(:body
 	 (:div :id "container"
 	       (:div :id "header"
-		    (:ul (:li (:a :href "../about.html" "home"))
+		    (:ul (:li (:a :href "../index.html" "home"))
 			 (:li (:a :href "index.html" "archive"))))
 
 	      (:div :id "sidebar")
