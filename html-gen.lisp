@@ -10,7 +10,7 @@
 	(:head
 	(:link :href "../css/style.css" :rel "stylesheet" :type "text/css" :media "screen")
 	(:link :rel "icon" :type "image/png" :href "../img/s.png")
-	(:title "index"))
+	(:title "archive"))
        (:body
 	(:div :id "container"
 
@@ -32,15 +32,15 @@
 	      (:div :id "footer"
 		    (:div :id "empty_box")))))))))
 
-(defun gen-blog-post-html (dir)
-  (let ((string-list (list-of-strings dir)))
+(defun gen-blog-post-html (file)
+  (let ((string-list (list-of-strings file)))
     (cl-who:with-html-output-to-string (*standard-output* nil :indent t :prologue t)
       (cl-who:htm
        (:html
 	(:head
 	 (:link :href "../css/style.css" :rel "stylesheet" :type "text/css" :media "screen")
 	 (:link :rel "icon" :type "image/png" :href "../img/s.png")
-	 (:title (cl-who:esc (first string-list))))
+	 (:title (cl-who:esc (pathname-name file))))
 	(:body
 	 (:div :id "container"
 	       (:div :id "header"
@@ -59,5 +59,3 @@
 	      (:div :id "filler")
 
 	      (:div :id "footer"))))))))
-
-	 
