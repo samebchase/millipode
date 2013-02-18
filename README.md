@@ -1,4 +1,4 @@
 Millipode
 =========
 
-A simple "blog" generator.
+A static site generator.
