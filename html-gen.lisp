@@ -20,7 +20,7 @@
 	      (:div :id "sidebar")
 
 	      (:div :id "content" :style "border-bottom: 0px; min-height: 500px"
-		    (:h3 "posts")
+		    (:h3 "archive")
 		    (cl-who:htm
 		     (:div :id "index_links"
 			   (loop for file in file-list 
@@ -45,11 +45,11 @@
 	 (:div :id "container"
 	       (:div :id "header"
 		    (:ul (:li (:a :href "../about" "home"))
-			 (:li (:a :href "index" "index"))))
+			 (:li (:a :href "index" "archive"))))
 
 	      (:div :id "sidebar")
 
-	      (:div :id "content" :style "border-bottom: 0px; min-height: 500px"
+	      (:div :id "content"
 
 		    (:h3 (cl-who:esc (first string-list)))
 		    (cl-who:htm
@@ -59,6 +59,5 @@
 	      (:div :id "filler")
 
 	      (:div :id "footer"))))))))
-
 
 	 
