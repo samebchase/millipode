@@ -16,7 +16,10 @@
 	(cl-who:htm
 	 (loop for file in file-list 
 	    unless (string= (pathname-name file) "index") do
-	      (cl-who:htm (:a :href file (cl-who:esc (pathname-name file))) :br)))))))))
+	      (cl-who:htm (:a :href file (cl-who:esc (pathname-name file))) :br))))
+       (:footer
+	(:a :href "index" "index")
+	(:a :href "../about" "home")))))))	
 
 (defun gen-blog-post-html (dir)
   (let ((string-list (list-of-strings dir)))

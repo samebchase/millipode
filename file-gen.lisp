@@ -14,13 +14,6 @@
      (pathname (merge-pathnames webpage-dir #P"index"))
      :if-exists :supersede :if-does-not-exist :create)))
 
-(defun generate-style (style-dir)
-  (prog1 (format t "Generating the stylesheet.~%")
-    (alexandria:write-string-into-file
-     (generate-base-css)
-     (pathname (merge-pathnames style-dir #P"style.css"))
-     :if-exists :supersede :if-does-not-exist :create)))
-
 (defun generate-modified-posts (content-dir webpage-dir)
   (mapcar (alexandria:curry #'generate-post webpage-dir)
 	  (list-modified-content content-dir webpage-dir)))
