@@ -45,16 +45,11 @@
 	       (:div :id "header"
 		    (:ul (:li (:a :href "../index.html" "home"))
 			 (:li (:a :href "index.html" "archive"))))
-
 	      (:div :id "sidebar")
-
 	      (:div :id "content"
-
 		    (:h3 (cl-who:esc (first string-list)))
 		    (cl-who:htm
 		     (loop for string in (rest string-list) do
 			  (cl-who:htm (:p (cl-who:esc string))))))
-
 	      (:div :id "filler")
-
 	      (:div :id "footer"))))))))
