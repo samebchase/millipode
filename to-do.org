@@ -4,6 +4,7 @@
 * DONE smart generation
 * TODO seo
 * DONE deal with orphaned pages
+* TODO refactor incorporating stassats' suggestions
 * TODO documentation
 * TODO ordering of posts
 ** ordered and unordered posts?

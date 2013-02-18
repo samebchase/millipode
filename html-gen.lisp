@@ -16,7 +16,7 @@
 	      (:div :id "header"
 		    (:ul (:li (:a :href "../index.html" "home"))))
 	      (:div :id "sidebar")
-	      (:div :id "content" :style "border-bottom: 0px; min-height: 500px"
+	      (:div :id "content" :style "border-bottom: 0px; min-height: 300px"
 		    (:h3 "archive")
 		    (:div :id "index_links"
 			  (cl-who:htm (loop for file in file-list 
