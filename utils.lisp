@@ -74,7 +74,7 @@ corresponding file in content-dir."
        collect webpage)))
 
 (defun delete-orphaned-webpages (content-dir webpage-dir)
-  (mapcar #'delete-file (list-orphaned-pages content-dir webpage-dir)))
+  (map 'nil #'delete-file (list-orphaned-pages content-dir webpage-dir)))
 
 (defun content-post-newerp (post-text-file webpage-dir delay)
   (let ((generated-webpage (corresponding-webpage-file
