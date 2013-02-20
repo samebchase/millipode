@@ -3,7 +3,7 @@ Millipode
 
 A static site generator.
 
-# Configuration
+## Configuration
 
 Change the values of the variables *content-dir* and *webpage-dir* as
 appropriate in millipode.lisp.
@@ -13,7 +13,7 @@ appropriate in millipode.lisp.
 It has currently only been tested with SBCL, so get into the REPL in
 the src directory and do:
 
-## Step 1.
+### Step 1.
 
 CL-USER> (asdf:oos 'asdf:load-op :millipode)
 
@@ -22,7 +22,7 @@ or
 CL-USER> (require :millipode)
 
 
-## Step 2.
+### Step 2.
 
 CL-USER> (in-package :millipode)
 
