@@ -25,18 +25,13 @@ generated html files."
      when (content-post-newerp file webpage-dir 2)
        collect file))
 
-;; TODO: probably needs to be renamed to file-to-strings. default sep
-;; could be \n
+(defun regular-file-exists-p (pathspec)
+  (and (file-exists-p pathspec) (not (directory-pathname-p pathspec))))
 
-(defun list-of-strings (pathspec separator)
-  (assert (and (file-exists-p pathspec) (not (directory-pathname-p pathspec))))
+(defun read-file-into-strings (pathspec separator)
+  (assert (regular-file-exists-p pathspec))
   (let ((string-list (cl-ppcre:split separator (alexandria:read-file-into-string pathspec))))
     string-list))
-
-;; TODO: Needs to be removed. use namestring 
-(defun path-str (pathspec)
-  "Returns pathname as string"
-  (format nil "~a" pathspec))
 
 ;; TODO: refactor this. namestring-file?
 (defun webpage-file (post-text-file webpage-dir)
@@ -44,13 +39,13 @@ generated html files."
 text-file regardless of whether it exists or not."
   (assert (file-exists-p post-text-file))
   (merge-pathnames webpage-dir
-		   (pathname (format nil "~a~a" (pathname-name post-text-file) ".html"))))
+		   (format nil "~a~a" (pathname-name post-text-file) ".html")))
 
 (defun text-file (webpage-file content-dir)
   "Does the converse of webpage-file."
   (assert (file-exists-p webpage-file))
   (merge-pathnames content-dir
-		   (pathname (format nil "~a~a" (pathname-name webpage-file) ".txt"))))
+		   (format nil "~a~a" (pathname-name webpage-file) ".txt")))
 
 (defun file-mod-time-diff (file-a file-b)
   "Returns the difference in seconds of the last-modified time."
