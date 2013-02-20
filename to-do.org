@@ -5,6 +5,8 @@
 * TODO seo
 * DONE deal with orphaned pages
 * TODO refactor incorporating stassats' suggestions
+** TODO make a list of modifications from the simplest ones
+** TODO test
 * TODO documentation
 * TODO ordering of posts
 ** ordered and unordered posts?

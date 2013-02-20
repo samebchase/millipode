@@ -1,5 +1,9 @@
 (in-package #:millipode)
 
+;; TODO: OO approach? Seems to be a lot of repetition of dir
+;; names. Maybe some sort of object containing these dirs can be
+;; passed around instead?
+
 (defparameter *content-dir* (cl-fad:pathname-as-directory #P"../content/"))
 (defparameter *webpage-dir* (cl-fad:pathname-as-directory #P"../p/"))
 

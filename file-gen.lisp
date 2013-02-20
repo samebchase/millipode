@@ -1,6 +1,7 @@
 (in-package :millipode)
 
 (defun generate-post (webpage-dir filepath)
+  "Generates a html file in webpage-dir"
   (format t "Generating: ~a.~%" (pathname-name filepath))
   (alexandria:write-string-into-file
    (gen-blog-post-html filepath)
@@ -10,6 +11,7 @@
 
 
 (defun generate-post-index (webpage-dir)
+  "Indexes all the posts in webpage dir."
   (format t "Generating the index.~%")
   (alexandria:write-string-into-file 
    (generate-post-index-html webpage-dir)
@@ -18,10 +20,12 @@
   nil)
 
 (defun generate-modified-posts (content-dir webpage-dir)
+  "Regenerates the html for the modified files in content-dir."
   (mapcar (alexandria:curry #'generate-post webpage-dir)
 	  (list-modified-content content-dir webpage-dir)))
 
 (defun generate-new-posts (content-dir webpage-dir)
+  "Generates the html for the newly added files in content-dir"
     (mapcar (alexandria:curry #'generate-post webpage-dir)
 	  (list-new-content content-dir webpage-dir))
     (generate-post-index webpage-dir))
