@@ -1,12 +1,10 @@
 (in-package :millipode) 
 
-(use-package :cl-who)
-
-(setf (html-mode) :html5)
+(setf (cl-who:html-mode) :html5)
 
 (defun generate-post-index-html (dir)
   (let ((file-list (ls dir)))
-    (with-html-output-to-string (*standard-output* nil :indent t :prologue t)
+    (who:with-html-output-to-string (*standard-output* nil :indent t :prologue t)
       (:html
        (:head
 	(:link :href "../css/style.css" :rel "stylesheet" :type "text/css" :media "screen")
@@ -22,17 +20,17 @@
 		    (:div :id "index_links"
 			  (loop for file in file-list 
 			     unless (string= (pathname-name file) "index") do
-			       (htm (:p
+			       (who:htm (:p
 				     (:a :href
-					 (escape-string (file-namestring file))
-					 (esc (pathname-name file))))))))
+					 (who:escape-string (file-namestring file))
+					 (who:esc (pathname-name file))))))))
 	      (:div :id "filler")
 	      (:div :id "footer"
 		    (:div :id "empty_box"))))))))
 
 (defun gen-blog-post-html (file)
-  (let ((string-list (list-of-strings file "\\n\\n")))
-    (with-html-output-to-string (*standard-output* nil :indent t :prologue t)
+  (let ((string-list (read-file-into-strings file "\\n\\n")))
+    (who:with-html-output-to-string (*standard-output* nil :indent t :prologue t)
       (:html
        (:head
 	(:link :href "../css/style.css" :rel "stylesheet" :type "text/css" :media "screen")
@@ -45,8 +43,8 @@
 			 (:li (:a :href "index.html" "archive"))))
 	      (:div :id "sidebar")
 	      (:div :id "content"
-		    (:h3 (esc (first string-list)))
+		    (:h3 (who:esc (first string-list)))
 		    (loop for string in (rest string-list) do
-			 (htm (:p (esc string)))))
+			 (who:htm (:p (who:esc string)))))
 	      (:div :id "filler")
 	      (:div :id "footer")))))))
