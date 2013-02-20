@@ -12,11 +12,26 @@ Change the values of *content-dir* and *webpage* dir as appropriate.
 It has currently only been tested with SBCL, so get into the REPL in
 the src directory and do:
 
-(asdf:oos 'asdf:load-op :millipode) or
+# Step 1.
+'''
+(asdf:oos 'asdf:load-op :millipode)
+
+or
 
 (require :millipode)
+'''
 
-You might need to first install asdf on other implementations.
+# Step 2.
+
+'''
+(in-package :millipode)
+'''
+
+Use (gen), (status) or (gen-all) as necessary.
+
+
+You might need to first install asdf on other implementations, as that
+is required.
 
 
 
