@@ -14,7 +14,6 @@
   (loop for pathname in (ls dir)
        when (string= (pathname-type pathname) suffix) collect pathname))
 
-
 (defun list-modified-content (content-dir webpage-dir)
   "Lists the text files that are newer than their corresponding
 generated html files."
