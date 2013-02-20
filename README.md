@@ -5,7 +5,8 @@ A static site generator.
 
 # Configuration
 
-Change the values of *content-dir* and *webpage* dir as appropriate.
+Change the values of the variables *content-dir* and *webpage-dir* as
+appropriate in millipode.lisp.
 
 ## Building
 
