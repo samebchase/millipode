@@ -1,4 +1,4 @@
-(in-package #:millipode)
+(in-package :millipode)
 
 ;; TODO: OO approach? Seems to be a lot of repetition of dir
 ;; names. Maybe some sort of object containing these dirs can be
@@ -18,3 +18,7 @@
 
 (defun gen-all ()
   (generate-all-posts *content-dir* *webpage-dir*))
+
+(defun delete-orphans ()
+  (delete-orphaned-webpages *content-dir* *webpage-dir*)
+  (generate-post-index *webpage-dir*))
