@@ -4,13 +4,20 @@
 ;; names. Maybe some sort of object containing these dirs can be
 ;; passed around instead?
 
-(defparameter *content-dir* (cl-fad:pathname-as-directory #P"../content/"))
-(defparameter *webpage-dir* (cl-fad:pathname-as-directory #P"../p/"))
+(defparameter *content-dir* (fad:pathname-as-directory #P"../content/"))
+(defparameter *webpage-dir* (fad:pathname-as-directory #P"../p/"))
+
+(defun print-list-files (string list)
+  (unless (null list)
+    (format t "~a: ~{~a~%~}" string list)))
 
 (defun status ()
-  (format t "Modified content:~%~{~a~%~}"  (list-modified-content *content-dir* *webpage-dir*))
-  (format t "New content:~%~{~a~%~}"       (list-new-content      *content-dir* *webpage-dir*))
-  (format t "Orphaned pages:~%~{~a~%~}"    (list-orphaned-pages   *content-dir* *webpage-dir*)))
+  (let ((modified (list-modified-content *content-dir* *webpage-dir*))
+	(new      (list-new-content      *content-dir* *webpage-dir*))
+	(orphaned (list-orphaned-pages   *content-dir* *webpage-dir*)))
+    (print-list-files "modified" modified)
+    (print-list-files "new" new)
+    (print-list-files "orphaned" orphaned)))
 
 (defun gen ()
   (generate-new-posts      *content-dir* *webpage-dir*)
