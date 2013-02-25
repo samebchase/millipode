@@ -3,22 +3,26 @@
 ;; TODO: figure out an elegant way of testing the existence of
 ;; multiple files. A with-existing macro?
 
+(defmacro with-existing-pode-slots (pode &body body)
+  `(with-slots (content-dir webpage-dir) ,pode
+     (assert (and (fad:directory-exists-p content-dir)
+		  (fad:directory-exists-p webpage-dir)))
+     ,@body))
+
 (defun ls (dir)
   (fad:list-directory dir))
 
 (defun list-modified-content (pode)
   "Lists the text files that are newer than their corresponding
 generated html files."
-  (with-slots (content-dir webpage-dir) pode 
-    (assert (and (fad:directory-exists-p content-dir)
-		 (fad:directory-exists-p webpage-dir)))
+  (with-existing-pode-slots pode 
     (loop for file in (ls content-dir)
        when (and (generated-webpage-p webpage-dir file)
 		 (content-post-newerp file webpage-dir 2))
        collect file)))
 
 (defun list-new-content (pode)
-  (with-slots (content-dir webpage-dir) pode
+  (with-existing-pode-slots pode 
     (loop for file in (ls content-dir)
        unless (generated-webpage-p webpage-dir file)
        collect file)))
@@ -26,7 +30,7 @@ generated html files."
 (defun list-orphaned-webpages (pode)
   "Lists the webpages from webpage-dir that do not have a
 corresponding file in content-dir."
-  (with-slots (content-dir webpage-dir) pode
+  (with-existing-pode-slots pode 
     (let ((webpages (ls webpage-dir)))
       (loop for webpage in webpages unless
 	   (or (fad:file-exists-p (corresponding-text-file
@@ -72,7 +76,7 @@ exists."
   (fad:file-exists-p (corresponding-webpage-file content-file webpage-dir)))
 
 (defun delete-orphaned-webpages (pode)
-  (with-slots (content-dir webpage-dir) pode
+  (with-existing-pode-slots pode 
     (map 'nil #'delete-file (list-orphaned-webpages pode))))
 
 (defun content-post-newerp (post-text-file webpage-dir delay)
