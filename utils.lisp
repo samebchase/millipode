@@ -1,13 +1,11 @@
 (in-package :millipode)
 
-;; TODO: figure out an elegant way of testing the existence of
-;; multiple files. A with-existing macro?
-
 (defmacro with-existing-pode-slots (pode &body body)
   `(with-slots (content-dir webpage-dir) ,pode
      (assert (and (fad:directory-exists-p content-dir)
-		  (fad:directory-exists-p webpage-dir)))
-     ,@body))
+		  (fad:directory-exists-p webpage-dir))
+	     (content-dir webpage-dir)
+     ,@body)))
 
 (defun ls (dir)
   (fad:list-directory dir))
@@ -33,8 +31,8 @@ corresponding file in content-dir."
   (with-existing-pode-slots pode 
     (let ((webpages (ls webpage-dir)))
       (loop for webpage in webpages unless
-	   (or (fad:file-exists-p (corresponding-text-file
-				   webpage content-dir))
+	   (or (fad:file-exists-p
+		(corresponding-text-file webpage content-dir))
 	       (string= (pathname-name webpage) "index"))
 	 collect webpage))))
 
@@ -77,7 +75,7 @@ exists."
 
 (defun delete-orphaned-webpages (pode)
   (with-existing-pode-slots pode 
-    (map 'nil #'delete-file (list-orphaned-webpages pode))))
+    (map nil #'delete-file (list-orphaned-webpages pode))))
 
 (defun content-post-newerp (post-text-file webpage-dir delay)
   (let ((generated-webpage (corresponding-webpage-file
