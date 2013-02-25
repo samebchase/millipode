@@ -49,6 +49,10 @@ corresponding file in content-dir."
 		      (alexandria:read-file-into-string pathspec))))
     string-list))
 
+(defmacro with-existing-file (files &body body)
+  `(assert `(and ,@(loop for file in files collect file)))
+	   ,@body)
+
 (defun corresponding-webpage-file (post-text-file webpage-dir)
   (assert (fad:file-exists-p post-text-file))
   (make-pathname :name (pathname-name post-text-file)
