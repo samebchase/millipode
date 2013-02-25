@@ -18,17 +18,20 @@
    :if-exists :supersede :if-does-not-exist :create)
   nil)
 
-(defun generate-modified-posts (content-dir webpage-dir)
-  "Regenerates the html for the modified files in content-dir."
-  (map nil (alexandria:curry #'generate-post webpage-dir)
-       (list-modified-content content-dir webpage-dir)))
+(defun generate-modified-posts (pode)
+  (with-slots (webpage-dir content-dir) pode
+    "Regenerates the html for the modified files in content-dir."
+    (map nil (alexandria:curry #'generate-post webpage-dir)
+	 (list-modified-content pode))))
 
-(defun generate-new-posts (content-dir webpage-dir)
-  "Generates the html for the newly added files in content-dir."
-  (map nil (alexandria:curry #'generate-post webpage-dir)
-       (list-new-content content-dir webpage-dir))
-  (generate-post-index webpage-dir))
+(defun generate-new-posts (pode)
+  (with-slots (webpage-dir content-dir) pode
+    "Generates the html for the newly added files in content-dir."
+    (map nil (alexandria:curry #'generate-post webpage-dir)
+	 (list-new-content pode)
+    (generate-post-index webpage-dir))))
 
-(defun generate-all-posts (content-dir webpage-dir)
-  (map nil (alexandria:curry #'generate-post webpage-dir) (ls content-dir))
-  (generate-post-index webpage-dir))
+(defun generate-all-posts (pode)
+  (with-slots (webpage-dir content-dir) pode
+    (map nil (alexandria:curry #'generate-post webpage-dir) (ls content-dir))
+    (generate-post-index webpage-dir)))

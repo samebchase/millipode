@@ -1,31 +1,32 @@
 (in-package :millipode)
 
-;; TODO: OO approach? Seems to be a lot of repetition of dir
-;; names. Maybe some sort of object containing these dirs can be
-;; passed around instead?
+(defclass pode ()
+    ((content-dir :accessor content-dir :initarg :content-dir)
+     (webpage-dir :accessor webpage-dir :initarg :webpage-dir)))
 
-(defparameter *content-dir* (fad:pathname-as-directory #P"../content/"))
-(defparameter *webpage-dir* (fad:pathname-as-directory #P"../p/"))
-
-(defun print-list-files (string list)
-  (unless (null list)
-    (format t "~a: ~{~a~%~}" string list)))
+(defparameter *blog-pode*
+  (make-instance 'pode
+		 :content-dir (fad:pathname-as-directory #P"../content/")
+		 :webpage-dir (fad:pathname-as-directory #P"../p/")))					 
 
 (defun status ()
-  (let ((modified (list-modified-content *content-dir* *webpage-dir*))
-	(new      (list-new-content      *content-dir* *webpage-dir*))
-	(orphaned (list-orphaned-pages   *content-dir* *webpage-dir*)))
-    (print-list-files "modified" modified)
-    (print-list-files "new" new)
-    (print-list-files "orphaned" orphaned)))
+  (let ((modified (list-modified-content  *blog-pode*))
+	(new      (list-new-content       *blog-pode*))
+	(orphaned (list-orphaned-webpages *blog-pode*)))
+    (flet ((print-list-files (string list)
+	     (unless (null list)
+	       (format t "~a: ~{~a~%~}" string list))))
+      (print-list-files "modified" modified)
+      (print-list-files "new" new)
+      (print-list-files "orphaned" orphaned))))
 
 (defun gen ()
-  (generate-new-posts      *content-dir* *webpage-dir*)
-  (generate-modified-posts *content-dir* *webpage-dir*))
+  (generate-new-posts      *blog-pode*)
+  (generate-modified-posts *blog-pode*))
 
 (defun gen-all ()
-  (generate-all-posts *content-dir* *webpage-dir*))
+  (generate-all-posts *blog-pode*))
 
 (defun delete-orphans ()
-  (delete-orphaned-webpages *content-dir* *webpage-dir*)
-  (generate-post-index *webpage-dir*))
+  (delete-orphaned-webpages *blog-pode*)
+  (generate-post-index *blog-pode*))

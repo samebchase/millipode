@@ -3,26 +3,36 @@
 ;; TODO: figure out an elegant way of testing the existence of
 ;; multiple files. A with-existing macro?
 
-;; TODO: ls could become some sort of method dispatching
-;; function. Keyword args?
-
 (defun ls (dir)
   (fad:list-directory dir))
 
-(defun ls-ext (dir suffix)
-  "Lists files with extension."
-  (loop for pathname in (ls dir)
-     when (string= (pathname-type pathname) suffix) collect pathname))
-
-(defun list-modified-content (content-dir webpage-dir)
+(defun list-modified-content (pode)
   "Lists the text files that are newer than their corresponding
 generated html files."
-  (assert (and (fad:directory-exists-p content-dir)
-	       (fad:directory-exists-p webpage-dir)))
-  (loop for file in (ls content-dir)
-     when (and (generated-webpage-p webpage-dir file)
-	       (content-post-newerp file webpage-dir 2))
-     collect file))
+  (with-slots (content-dir webpage-dir) pode 
+    (assert (and (fad:directory-exists-p content-dir)
+		 (fad:directory-exists-p webpage-dir)))
+    (loop for file in (ls content-dir)
+       when (and (generated-webpage-p webpage-dir file)
+		 (content-post-newerp file webpage-dir 2))
+       collect file)))
+
+(defun list-new-content (pode)
+  (with-slots (content-dir webpage-dir) pode
+    (loop for file in (ls content-dir)
+       unless (generated-webpage-p webpage-dir file)
+       collect file)))
+
+(defun list-orphaned-webpages (pode)
+  "Lists the webpages from webpage-dir that do not have a
+corresponding file in content-dir."
+  (with-slots (content-dir webpage-dir) pode
+    (let ((webpages (ls webpage-dir)))
+      (loop for webpage in webpages unless
+	   (or (fad:file-exists-p (corresponding-text-file
+				   webpage content-dir))
+	       (string= (pathname-name webpage) "index"))
+	 collect webpage))))
 
 (defun regular-file-exists-p (pathspec)
   (and (fad:file-exists-p pathspec)
@@ -30,7 +40,9 @@ generated html files."
 
 (defun read-file-into-strings (pathspec separator)
   (assert (regular-file-exists-p pathspec))
-  (let ((string-list (ppcre:split separator (alexandria:read-file-into-string pathspec))))
+  (let ((string-list (ppcre:split
+		      separator
+		      (alexandria:read-file-into-string pathspec))))
     string-list))
 
 (defun corresponding-webpage-file (post-text-file webpage-dir)
@@ -38,7 +50,7 @@ generated html files."
   (make-pathname :name (pathname-name post-text-file)
 		 :type "html"
 		 :defaults webpage-dir))
-  
+
 (defun corresponding-text-file (webpage-file content-dir)
   (assert (fad:file-exists-p webpage-file))
   (make-pathname :name (pathname-name webpage-file)
@@ -59,22 +71,9 @@ exists."
 	       (fad:file-exists-p content-file)))
   (fad:file-exists-p (corresponding-webpage-file content-file webpage-dir)))
 
-(defun list-new-content (content-dir webpage-dir)
-  (loop for file in (ls content-dir)
-     unless (generated-webpage-p webpage-dir file)
-     collect file))
-
-(defun list-orphaned-pages (content-dir webpage-dir)
-  " Lists the webpages from webpage-dir that do not have a
-corresponding file in content-dir."
-  (let ((webpages (ls webpage-dir)))
-    (loop for webpage in webpages unless
-	 (or (fad:file-exists-p (corresponding-text-file webpage content-dir))
-	     (string= (pathname-name webpage) "index"))
-       collect webpage)))
-
-(defun delete-orphaned-webpages (content-dir webpage-dir)
-  (map 'nil #'delete-file (list-orphaned-pages content-dir webpage-dir)))
+(defun delete-orphaned-webpages (pode)
+  (with-slots (content-dir webpage-dir) pode
+    (map 'nil #'delete-file (list-orphaned-webpages pode))))
 
 (defun content-post-newerp (post-text-file webpage-dir delay)
   (let ((generated-webpage (corresponding-webpage-file
