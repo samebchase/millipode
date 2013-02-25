@@ -4,8 +4,8 @@
   `(with-slots (content-dir webpage-dir) ,pode
      (assert (and (fad:directory-exists-p content-dir)
 		  (fad:directory-exists-p webpage-dir))
-	     (content-dir webpage-dir)
-     ,@body)))
+	     (content-dir webpage-dir))
+     ,@body))
 
 (defun ls (dir)
   (fad:list-directory dir))
