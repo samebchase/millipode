@@ -1,6 +1,4 @@
-syntax: glob
-
-core.*.*
+core*
 *.fasl
 *.lib
 *~
