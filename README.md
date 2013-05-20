@@ -40,14 +40,25 @@ Millipode is currently known to build on:
 
 ### Step 1.
 
+If you're in the `src` directory of Millipode, you can just do:
+
 `CL-USER> (asdf:oos 'asdf:load-op :millipode)`
 
-You can also do `(ql:quickload 'millipode)` if you put Millipode where
-Quicklisp places all its dists. This directory will be somewhere in
-the `quicklisp` directory created by Quicklisp.
+If you're not in the `src` directory of Millipode, you will have to
+add the path to ASDF's `*central-registry*` by:
+
+`(push #P"/path/to/millipode/src/" asdf:*central-registry*)`
+
+Once that's done, you can either do:
+`CL-USER> (ql:quickload :millipode)` if you've got Quicklisp installed, or:
+`CL-USER> (asdf:oos 'asdf:load-op :millipode)` like before.
 
 ### Step 2.
 
 `CL-USER> (in-package :millipode)`
 
 `CL-USER> (help)` to give you the built in documentation.
+
+### Known users of Millipode
+
+- [Samuel Chase](http://www.samebchase.com/) :-)
