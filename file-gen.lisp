@@ -28,10 +28,11 @@
   "Generates the html for the newly added files in content-dir."
   (with-slots (webpage-dir content-dir) pode
     (map nil (alexandria:curry #'generate-post webpage-dir)
-		 (list-new-content pode)
-		 (generate-post-index webpage-dir))))
+		 (list-new-content pode))
+	(generate-post-index webpage-dir)))
 
 (defun generate-all-posts (pode)
   (with-slots (webpage-dir content-dir) pode
-    (map nil (alexandria:curry #'generate-post webpage-dir) (ls content-dir))
+    (map nil (alexandria:curry #'generate-post webpage-dir)
+		 (ls content-dir))
     (generate-post-index webpage-dir)))
