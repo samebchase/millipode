@@ -21,15 +21,15 @@ If you've got [Quicklisp](http://www.quicklisp.org/) installed just do:
 
 `*content-dir*` is the directory containing text files.
 
-`*webpage-dir*` is the directory in which the html files should be
+`*webpage-dir*` is the directory in which the HTML files should be
 generated.
 
 Change the values of `*content-dir*` and `*webpage-dir*` as
-appropriate in millipode.lisp. You may also need to ensure that those
+appropriate in `millipode.lisp`. You may also need to ensure that those
 directories do actually exist.
 
-You might also want to modify the structure of the generated html
-documents by editing the relevant sections of `html-gen.lisp`
+You might also want to modify the structure of the generated HTML
+documents by editing the relevant sections of `html-gen.lisp`.
 
 ## Portability
 
@@ -47,10 +47,12 @@ If you're in the `src` directory of Millipode, you can just do:
 If you're not in the `src` directory of Millipode, you will have to
 add the path to ASDF's `*central-registry*` by:
 
-`(push #P"/path/to/millipode/src/" asdf:*central-registry*)`
+`CL-USER> (push #P"/path/to/millipode/src/" asdf:*central-registry*)`
 
 Once that's done, you can either do:
+
 `CL-USER> (ql:quickload :millipode)` if you've got Quicklisp installed, or:
+
 `CL-USER> (asdf:oos 'asdf:load-op :millipode)` like before.
 
 ### Step 2.
