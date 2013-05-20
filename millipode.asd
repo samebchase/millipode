@@ -6,10 +6,10 @@
   :depends-on (#:alexandria
                #:cl-fad
                #:cl-who
-			   #:cl-ppcre)
+               #:cl-ppcre)
   :components ((:file "package")
-			   (:file "utils")
-			   (:file "html-gen")
-			   (:file "file-gen")
+               (:file "utils")
+               (:file "html-gen")
+               (:file "file-gen")
                (:file "millipode")))
 
