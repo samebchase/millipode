@@ -4,16 +4,16 @@ A static site generator.
 
 ## Dependencies
 
-If you don't have Quicklisp[http://www.quicklisp.org/] installed, you
+If you don't have [Quicklisp](http://www.quicklisp.org/) installed, you
 will need to get these:
 
-- ASDF[http://common-lisp.net/project/asdf/]
-- CL-WHO[http://weitz.de/cl-who/]
-- CL-FAD[http://weitz.de/cl-fad/]
-- CL-PPCRE[http://weitz.de/cl-ppcre/]
-- Alexandria[http://common-lisp.net/project/alexandria/]
+- [ASDF](http://common-lisp.net/project/asdf/)
+- [CL-WHO(http://weitz.de/cl-who/)
+- [CL-FAD(http://weitz.de/cl-fad/)
+- [CL-PPCRE](http://weitz.de/cl-ppcre/)
+- [Alexandria](http://common-lisp.net/project/alexandria/)
 
-If you've got Quicklisp[http://www.quicklisp.org/] installed just do:
+If you've got [Quicklisp](http://www.quicklisp.org/) installed just do:
 
 `CL-USER> (ql:quickload '(cl-fad cl-who cl-ppcre alexandria))`
 
