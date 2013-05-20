@@ -1,6 +1,9 @@
 (in-package :millipode)
 
 (defclass pode ()
+;;; Contains two paths. content-dir is the directory containing text
+;;; files and webpage-dir is where the the html files should be
+;;; generated.
   ((content-dir :accessor content-dir :initarg :content-dir)
    (webpage-dir :accessor webpage-dir :initarg :webpage-dir)))
 
@@ -17,7 +20,6 @@
 "[commands]: '(help status gen clean gen-all)
 
 Evaluate \"(describe '<command>), e.g. (describe 'help)\" for more information."))
-
 
 (defun status ()
   "The three statuses are: new, modified and orphaned.
