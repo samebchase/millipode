@@ -8,8 +8,8 @@ If you don't have [Quicklisp](http://www.quicklisp.org/) installed, you
 will need to get these:
 
 - [ASDF](http://common-lisp.net/project/asdf/)
-- [CL-WHO(http://weitz.de/cl-who/)
-- [CL-FAD(http://weitz.de/cl-fad/)
+- [CL-WHO](http://weitz.de/cl-who/)
+- [CL-FAD](http://weitz.de/cl-fad/)
 - [CL-PPCRE](http://weitz.de/cl-ppcre/)
 - [Alexandria](http://common-lisp.net/project/alexandria/)
 
