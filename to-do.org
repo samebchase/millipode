@@ -1,4 +1,5 @@
 * TODO fix README
+* TODO easy interface to deal with orphaned posts
 * TODO smart index generation
 * TODO trivial features of markdown-parser
 ** TODO (:link)
@@ -10,7 +11,7 @@
 * TODO change pathnames when assert fails
   The user should be able to set the pathnames when assert fails.
 * TODO with-existing-file
-* TODO orphaned-posts should have a more tasteful name.
+* TODO orphaned-posts should have a more tasteful name
 * TODO [New features]
 ** TODO categorising posts: e.g. life:childhood.txt tech:code.txt etc.
 ** TODO grouping of posts
