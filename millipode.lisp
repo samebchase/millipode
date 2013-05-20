@@ -27,6 +27,6 @@
 (defun gen-all ()
   (generate-all-posts *blog-pode*))
 
-(defun delete-orphans ()
+(defun clean ()
   (delete-orphaned-webpages *blog-pode*)
   (generate-post-index *blog-pode*))
