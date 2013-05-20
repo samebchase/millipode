@@ -28,6 +28,9 @@ Change the values of `*content-dir*` and `*webpage-dir*` as
 appropriate in millipode.lisp. You may also need to ensure that those
 directories do actually exist.
 
+You might also want to modify the structure of the generated html
+documents by editing the relevant sections of `html-gen.lisp`
+
 ## Portability
 
 Millipode is currently known to build on:
