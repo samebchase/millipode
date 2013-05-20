@@ -1,29 +1,18 @@
-* TODO refactor incorporating stassats' suggestions
-** TODO import symbols from packages to reduce verbosity
-** DONE (use-package :cl-who)
-** DONE use namestring and directory-namestring
-** DONE don't use mapcar when you don't need it's return value
-* TODO millipode.lisp
-  Should make it more high level.
-* TODO the index should not be generated unnecessarily
+* TODO fix README
+* TODO smart index generation
+* TODO trivial features of markdown-parser
+** TODO (:link)
+** TODO (:img)
+** TODO (:code)
+** TODO (:quote)
+* TODO import symbols from packages to reduce verbosity
+* TODO easy deployment
 * TODO change pathnames when assert fails
   The user should be able to set the pathnames when assert fails.
-* TODO ordering of posts
-** ordered and unordered posts?
-** 23-feb-2012-23-12-fishing or 2012:feb:23-fishing.txt
-** elisp function to save files in the date-time format?
-* TODO (:link)
-* TODO (:img)
-* TODO (:code)
-* TODO (:quote)
-* TODO help
-* TODO easy deployment
-* TODO orphaned-posts should have a more tasteful name.
 * TODO with-existing-file
-* DONE created a pode class that can be passed to functions
-* DONE basic docstrings
-* DONE deal with orphaned pages
-* DONE smart generation
-* DONE overwriting files
-* F: categorising posts. e.g. life:childhood.txt tech:code.txt etc.
-* F: grouping of posts?
+* TODO orphaned-posts should have a more tasteful name.
+* TODO [New features]
+** TODO categorising posts: e.g. life:childhood.txt tech:code.txt etc.
+** TODO grouping of posts
+** TODO post dates
+** TODO ordered and unordered posts?
