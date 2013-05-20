@@ -63,4 +63,4 @@ If status returns NIL, that means there is nothing to be done.
 (defun clean ()
   "Deletes orphaned webpages and updates the index."
   (delete-orphaned-webpages *blog-pode*)
-  (generate-post-index *blog-pode*))
+  (generate-post-index (webpage-dir *blog-pode*)))
