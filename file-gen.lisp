@@ -7,7 +7,7 @@
    (gen-blog-post-html filepath)
    (corresponding-webpage-file filepath webpage-dir)
    :if-exists :supersede :if-does-not-exist :create)
-    nil)
+  nil)
 
 (defun generate-post-index (webpage-dir)
   "Indexes all the posts in webpage dir."
@@ -19,17 +19,17 @@
   nil)
 
 (defun generate-modified-posts (pode)
+  "Regenerates the html for the modified files in content-dir."
   (with-slots (webpage-dir content-dir) pode
-    "Regenerates the html for the modified files in content-dir."
     (map nil (alexandria:curry #'generate-post webpage-dir)
-	 (list-modified-content pode))))
+		 (list-modified-content pode))))
 
 (defun generate-new-posts (pode)
+  "Generates the html for the newly added files in content-dir."
   (with-slots (webpage-dir content-dir) pode
-    "Generates the html for the newly added files in content-dir."
     (map nil (alexandria:curry #'generate-post webpage-dir)
-	 (list-new-content pode)
-    (generate-post-index webpage-dir))))
+		 (list-new-content pode)
+		 (generate-post-index webpage-dir))))
 
 (defun generate-all-posts (pode)
   (with-slots (webpage-dir content-dir) pode
