@@ -1,7 +1,5 @@
-* TODO fix README
 * TODO Make having multiple podes possible
 * TODO Remove usage of global variables
-* TODO easy interface to deal with orphaned posts
 * TODO smart index generation
 * TODO trivial features of markdown-parser
 ** TODO (:link)
