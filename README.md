@@ -41,13 +41,13 @@ text.
 Write your posts like in this format and place them in
 `*content-dir*`:
 
-`Your title goes here
+		Your title goes here
 
-This is some text in the first paragraph.
+		This is some text in the first paragraph.
 
-This is some text in the second paragraph.
+		This is some text in the second paragraph.
 
-etc.`
+		etc.
 
 ## Portability
 
