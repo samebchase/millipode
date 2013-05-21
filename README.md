@@ -14,7 +14,8 @@ will need to get these:
 - [Alexandria](http://common-lisp.net/project/alexandria/): commonly
   used utilities.
 
-If you've got [Quicklisp](http://www.quicklisp.org/) installed, you can just do:
+If you've got [Quicklisp](http://www.quicklisp.org/) installed, you
+can type the following lisp form into a Common Lisp REPL:
 
 `CL-USER> (ql:quickload '(cl-fad cl-who cl-ppcre alexandria))`
 
@@ -43,8 +44,8 @@ posts. For the time being, they have to be written in _plain_ plain
 text. Links, images and code-blocks are among the first features that
 I want to support.
 
-Write your posts like in this format and place them in
-`*content-dir*`:
+Write your posts in this format and save them with a `.txt` file
+extension in `*content-dir*`:
 
 		Your title goes here
 
@@ -61,14 +62,14 @@ Millipode is currently known to build on:
 
 ## Building
 
-### Step 1.
+### Step 1:
 
 If you're in the `src` directory of Millipode, you can just do:
 
 `CL-USER> (asdf:oos 'asdf:load-op :millipode)`
 
 If you're not in the `src` directory of Millipode, you will have to
-add the path to ASDF's `*central-registry*` by:
+add Millipode's `src` path to ASDF's `*central-registry*` by:
 
 `CL-USER> (push #P"/path/to/millipode/src/" asdf:*central-registry*)`
 
@@ -79,11 +80,12 @@ installed, or:
 
 `CL-USER> (asdf:oos 'asdf:load-op :millipode)` like before.
 
-### Step 2.
+### Step 2:
 
-`CL-USER> (in-package :millipode)`
+`CL-USER> (in-package :millipode)` and then, once you're in the
+package,
 
-`CL-USER> (help)` to give you the built in documentation.
+`MILLIPODE> (help)` to give you the built in documentation.
 
 ## Contributions
 
