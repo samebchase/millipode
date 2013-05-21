@@ -83,6 +83,25 @@ Once that's done, you can either do:
 
 `CL-USER> (help)` to give you the built in documentation.
 
-### Known users of Millipode
+## Contributions
+
+Contributions are most welcome.
+
+These are the ways of helping out:
+
+- Code: Make a pull request, or email patches.
+
+- Testing: Bug reports.
+
+- Documentation: Let me know if anything is not described clearly in the documentation.
+
+- Feature requests: If I think the feature is within the scope of
+  millipode, and I think I can implement it, I will definitely do so.
+
+## Known users of Millipode
+
+Make a pull request if you want to be added here.
+
+Early testers will be provided with free (!!) email/IRC support.
 
 - [Samuel Chase](http://www.samebchase.com/) :-)
