@@ -27,8 +27,8 @@ appropriate in `millipode.lisp`.
 `*webpage-dir*` is the directory in which the HTML files should be
 generated.
 
-_Note:_ There should be a trailing slash for a directory e.g. `path/to/foo/`
-instead of `path/to/foo`. You may also need to ensure that those
+_Note:_ There should be a trailing slash for a directory e.g. `#P"path/to/foo/"`
+instead of `#P"path/to/foo"`. You may also need to ensure that those
 directories do actually exist.
 
 Modify the structure of the generated HTML documents by editing the
