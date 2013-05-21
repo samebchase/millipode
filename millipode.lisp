@@ -1,25 +1,20 @@
 (in-package :millipode)
 
 (defclass pode ()
-;;; Contains two paths. content-dir is the directory containing text
-;;; files and webpage-dir is where the the html files should be
-;;; generated.
   ((content-dir :accessor content-dir :initarg :content-dir)
-   (webpage-dir :accessor webpage-dir :initarg :webpage-dir)))
+   (webpage-dir :accessor webpage-dir :initarg :webpage-dir))
+  (:documentation
+   "A pode is a simple compound type consisting of two pathspecs
+content-dir and webpage-dir. content-dir is the directory containing
+text files and webpage-dir is where the the html files should be
+generated."))
 
 (defparameter *blog-pode*
   (make-instance 'pode
                  :content-dir
-				 (fad:pathname-as-directory #P"/home/samuel/projects/samebchase.com/site/content/") ;; Change this path
+				 (fad:pathname-as-directory *blog-content-dir*)
                  :webpage-dir
-				 (fad:pathname-as-directory #P"/home/samuel/projects/samebchase.com/site/p/"))) ;; And this
-
-(defun help ()
-  "Lists available commands"
-  (format t 
-		  "[commands]: '(help status gen clean gen-all)
-
-Evaluate \"(describe '<command>), e.g. (describe 'status)\" for more information."))
+				 (fad:pathname-as-directory *blog-webpage-dir*)))
 
 (defun status ()
   "If status returns NIL, that means there is nothing to be done.
@@ -60,3 +55,10 @@ CONTENT-DIR does not exist.
 (defun clean ()
   "Deletes orphaned webpages and updates the index."
   (delete-orphaned-webpages *blog-pode*))
+
+(defun help ()
+  "Lists available commands"
+  (format t 
+		  "[commands]: '(help status gen clean gen-all)
+
+Evaluate \"(describe '<command>), e.g. (describe 'status)\" for more information."))

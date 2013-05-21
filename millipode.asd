@@ -11,5 +11,6 @@
                (:file "utils")
                (:file "html-gen")
                (:file "file-gen")
+			   (:file "config")
                (:file "millipode")))
 

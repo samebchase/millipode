@@ -1,6 +1,8 @@
-* TODO Make having multiple podes possible
-* TODO Remove usage of global variables
-* TODO smart index generation
+* TODO easy configurability
+** TODO user configuration of *content-dir* and *webpage-dir* without having to edit millipode.lisp
+** TODO html templating
+* TODO make having multiple podes possible
+* TODO remove usage of global variables
 * TODO trivial features of markdown-parser
 ** TODO (:link)
 ** TODO (:img)
