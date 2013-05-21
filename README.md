@@ -31,6 +31,26 @@ directories do actually exist.
 You might also want to modify the structure of the generated HTML
 documents by editing the relevant sections of `html-gen.lisp`.
 
+## Post format
+
+Eventually when [markdown-parser](https://github.com/samebchase) is
+working well enough, I hope to use markdown as the format for writing
+posts. For the time being, they have to be written in _plain_ plain
+text.
+
+Write your posts like in this format and place them in
+`*content-dir*`:
+
+`
+Your title goes here
+
+This is some text in the first paragraph.
+
+This is some text in the second paragraph.
+
+etc.
+`
+
 ## Portability
 
 Millipode is currently known to build on:
