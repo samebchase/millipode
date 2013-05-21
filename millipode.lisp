@@ -9,15 +9,15 @@
 
 (defparameter *blog-pode*
   (make-instance 'pode
-				 :content-dir (fad:pathname-as-directory
-				 #P"/home/samuel/projects/samebchase.com/site/content/") ;; Change this path
-				 :webpage-dir (fad:pathname-as-directory
-				 #P"/home/samuel/projects/samebchase.com/site/p/"))) ;; And this
+                 :content-dir
+				 (fad:pathname-as-directory #P"/home/samuel/projects/samebchase.com/site/content/") ;; Change this path
+                 :webpage-dir
+				 (fad:pathname-as-directory #P"/home/samuel/projects/samebchase.com/site/p/"))) ;; And this
 
 (defun help ()
   "Lists available commands"
   (format t 
-"[commands]: '(help status gen clean gen-all)
+		  "[commands]: '(help status gen clean gen-all)
 
 Evaluate \"(describe '<command>), e.g. (describe 'status)\" for more information."))
 
@@ -42,14 +42,11 @@ List of webpages in *WEBPAGE-DIR* for which a corresponding file in
 CONTENT-DIR does not exist.
 "
   (let ((modified (list-modified-content  *blog-pode*))
-		(new      (list-new-content       *blog-pode*))
-		(orphaned (list-orphaned-webpages *blog-pode*)))
-    (flet ((print-list-files (string list)
-			 (unless (null list)
-			   (format t "~a: ~{~a~%~}" string list))))
-      (print-list-files "[new]" new)
-      (print-list-files "[modified]" modified)
-      (print-list-files "[orphaned]" orphaned))))
+        (new      (list-new-content       *blog-pode*))
+        (orphaned (list-orphaned-webpages *blog-pode*)))
+    (print-list-files "[new]" new)
+    (print-list-files "[modified]" modified)
+    (print-list-files "[orphaned]" orphaned)))
 
 (defun gen ()
   "Generates new and modified posts. It updates the index, if necessary."
@@ -62,5 +59,4 @@ CONTENT-DIR does not exist.
 
 (defun clean ()
   "Deletes orphaned webpages and updates the index."
-  (delete-orphaned-webpages *blog-pode*)
-  (generate-post-index (webpage-dir *blog-pode*)))
+  (delete-orphaned-webpages *blog-pode*))
