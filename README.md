@@ -11,7 +11,8 @@ will need to get these:
 - [CL-WHO](http://weitz.de/cl-who/): for HTML output.
 - [CL-FAD](http://weitz.de/cl-fad/): handling pathnames.
 - [CL-PPCRE](http://weitz.de/cl-ppcre/): regular expressions.
-- [Alexandria](http://common-lisp.net/project/alexandria/): commonly used utilities.
+- [Alexandria](http://common-lisp.net/project/alexandria/): commonly
+  used utilities.
 
 If you've got [Quicklisp](http://www.quicklisp.org/) installed, you can just do:
 
@@ -27,9 +28,9 @@ appropriate in `millipode.lisp`.
 `*webpage-dir*` is the directory in which the HTML files should be
 generated.
 
-_Note:_ There should be a trailing slash for a directory e.g. `#P"path/to/foo/"`
-instead of `#P"path/to/foo"`. You may also need to ensure that those
-directories do actually exist.
+_Note:_ There should be a trailing slash for a directory
+e.g. `#P"path/to/foo/"` instead of `#P"path/to/foo"`. You may also
+need to ensure that those directories do actually exist.
 
 Modify the structure of the generated HTML documents by editing the
 relevant sections of `html-gen.lisp`.
@@ -73,7 +74,8 @@ add the path to ASDF's `*central-registry*` by:
 
 Once that's done, you can either do:
 
-`CL-USER> (ql:quickload :millipode)` if you've got Quicklisp installed, or:
+`CL-USER> (ql:quickload :millipode)` if you've got Quicklisp
+installed, or:
 
 `CL-USER> (asdf:oos 'asdf:load-op :millipode)` like before.
 
@@ -91,17 +93,17 @@ These are the ways of helping out:
 
 - Code: Make a pull request, or email patches.
 
-- Testing: Bug reports.
+- Testing: Bug reports. Early testers will be provided with free (!!)
+  email/IRC support.
 
-- Documentation: Let me know if anything is not described clearly in the documentation.
+- Documentation: Let me know if anything is not described clearly in
+  the documentation.
 
 - Feature requests: If I think the feature is within the scope of
   millipode, and I think I can implement it, I will definitely do so.
 
 ## Known users of Millipode
 
-Make a pull request if you want to be added here.
-
-Early testers will be provided with free (!!) email/IRC support.
-
 - [Samuel Chase](http://www.samebchase.com/) :-)
+
+Make a pull request if you want to be added here.
