@@ -26,17 +26,17 @@ Evaluate \"(describe '<command>), e.g. (describe 'help)\" for more information."
 
 [new]:
 
-List of files in CONTENT-DIR which have not been generated into their
+List of files in *CONTENT-DIR* which have not been generated into their
 corresponding html files.
 
 [modified]:
 
-List of files in CONTENT-DIR that have been modified since the last
+List of files in *CONTENT-DIR* that have been modified since the last
 time their corresponding html files have been generated.
 
 [orphaned]:
 
-List of webpages in WEBPAGE-DIR for which a corresponding file in
+List of webpages in *WEBPAGE-DIR* for which a corresponding file in
 CONTENT-DIR does not exist.
 
 If status returns NIL, that means there is nothing to be done.
