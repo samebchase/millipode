@@ -1,17 +1,17 @@
 # Millipode
 
-A static site generator.
+An easy to use static site generator. Minimal configuration.
 
 ## Dependencies
 
 If you don't have [Quicklisp](http://www.quicklisp.org/) installed, you
 will need to get these:
 
-- [ASDF](http://common-lisp.net/project/asdf/)
-- [CL-WHO](http://weitz.de/cl-who/)
-- [CL-FAD](http://weitz.de/cl-fad/)
-- [CL-PPCRE](http://weitz.de/cl-ppcre/)
-- [Alexandria](http://common-lisp.net/project/alexandria/)
+- [ASDF](http://common-lisp.net/project/asdf/): kinda like `make` for Lisp.
+- [CL-WHO](http://weitz.de/cl-who/): for HTML output.
+- [CL-FAD](http://weitz.de/cl-fad/): handling pathnames.
+- [CL-PPCRE](http://weitz.de/cl-ppcre/): regular expressions.
+- [Alexandria](http://common-lisp.net/project/alexandria/): commonly used utilities.
 
 If you've got [Quicklisp](http://www.quicklisp.org/) installed just do:
 
@@ -25,8 +25,9 @@ If you've got [Quicklisp](http://www.quicklisp.org/) installed just do:
 generated.
 
 Change the values of `*content-dir*` and `*webpage-dir*` as
-appropriate in `millipode.lisp`. You may also need to ensure that those
-directories do actually exist.
+appropriate in `millipode.lisp`. There should be a trailing slash for
+a directory e.g. `path/to/foo/` instead of `path/to/foo`. You may also
+need to ensure that those directories do actually exist.
 
 You might also want to modify the structure of the generated HTML
 documents by editing the relevant sections of `html-gen.lisp`.
