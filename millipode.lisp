@@ -10,19 +10,21 @@
 (defparameter *blog-pode*
   (make-instance 'pode
 				 :content-dir (fad:pathname-as-directory
-				 #P"/home/samuel/projects/samebchase.com/site/content/")
+				 #P"/home/samuel/projects/samebchase.com/site/content/") ;; Change this path
 				 :webpage-dir (fad:pathname-as-directory
-				 #P"/home/samuel/projects/samebchase.com/site/p/")))
+				 #P"/home/samuel/projects/samebchase.com/site/p/"))) ;; And this
 
 (defun help ()
   "Lists available commands"
   (format t 
 "[commands]: '(help status gen clean gen-all)
 
-Evaluate \"(describe '<command>), e.g. (describe 'help)\" for more information."))
+Evaluate \"(describe '<command>), e.g. (describe 'status)\" for more information."))
 
 (defun status ()
-  "The three statuses are: new, modified and orphaned.
+  "If status returns NIL, that means there is nothing to be done.
+
+The three statuses are: new, modified and orphaned.
 
 [new]:
 
@@ -38,8 +40,6 @@ time their corresponding html files have been generated.
 
 List of webpages in *WEBPAGE-DIR* for which a corresponding file in
 CONTENT-DIR does not exist.
-
-If status returns NIL, that means there is nothing to be done.
 "
   (let ((modified (list-modified-content  *blog-pode*))
 		(new      (list-new-content       *blog-pode*))
