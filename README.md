@@ -21,13 +21,15 @@ can type the following lisp form into a Common Lisp REPL:
 
 ## Configuration
 
-Change the values of `*content-dir*` and `*webpage-dir*` as
-appropriate in `millipode.lisp`.
+In most cases, it should only necessary to edit	`config.lisp`.
 
-`*content-dir*` is the directory containing text files.
+Change the values of `*blog-content-dir*` and `*blog-webpage-dir*` as
+appropriate in `config.lisp`.
 
-`*webpage-dir*` is the directory in which the HTML files should be
-generated.
+`*blog-content-dir*` is meant to be the directory containing text files.
+
+`*blog-webpage-dir*` is meant to be the directory in which the HTML
+files should be generated.
 
 _Note:_ There should be a trailing slash for a directory
 e.g. `#P"path/to/foo/"` instead of `#P"path/to/foo"`. You may also
@@ -35,6 +37,9 @@ need to ensure that those directories do actually exist.
 
 Modify the structure of the generated HTML documents by editing the
 relevant sections of `html-gen.lisp`.
+
+Millipode will have to be rebuilt for the changes in `config.lisp` to
+take effect.
 
 ## Post format
 
