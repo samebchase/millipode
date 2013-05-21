@@ -73,8 +73,11 @@ exists."
   (fad:file-exists-p (corresponding-webpage-file content-file webpage-dir)))
 
 (defun delete-orphaned-webpages (pode)
-  (map nil #'delete-file (list-orphaned-webpages pode)))
-
+  (let ((orphans (list-orphaned-webpages pode)))
+	(map nil #'delete-file orphans)
+	(print-list-files "[deleted]" orphans)
+	(generate-post-index (webpage-dir pode))))
+	
 (defun content-post-newerp (post-text-file webpage-dir delay)
   (let ((generated-webpage (corresponding-webpage-file
                             post-text-file webpage-dir)))
@@ -88,3 +91,8 @@ exists."
   (loop for file in (ls pathspec) do
        (when (not (fad:directory-pathname-p file))
          (delete-file file))))
+
+(defun print-list-files (string list)
+  (unless (null list)
+	(format t "~a: ~{~a~%~}" string list)))
+

@@ -2,7 +2,7 @@
 
 (defun generate-post (webpage-dir filepath)
   "Generates a html file in webpage-dir."
-  (format t "Generating: ~a.~%" (pathname-name filepath))
+  (format t "Generating: ~a.html~%" (pathname-name filepath))
   (alexandria:write-string-into-file
    (gen-blog-post-html filepath)
    (corresponding-webpage-file filepath webpage-dir)
@@ -21,15 +21,16 @@
 (defun generate-modified-posts (pode)
   "Regenerates the html for the modified files in content-dir."
   (with-slots (webpage-dir content-dir) pode
-    (map nil (alexandria:curry #'generate-post webpage-dir)
+	(map nil (alexandria:curry #'generate-post webpage-dir)
 		 (list-modified-content pode))))
 
 (defun generate-new-posts (pode)
   "Generates the html for the newly added files in content-dir."
-  (with-slots (webpage-dir content-dir) pode
-    (map nil (alexandria:curry #'generate-post webpage-dir)
-		 (list-new-content pode))
-	(generate-post-index webpage-dir)))
+  (let ((new-content (list-new-content pode)))
+	(when new-content
+	  (with-slots (webpage-dir content-dir) pode
+		(map nil (alexandria:curry #'generate-post webpage-dir) new-content)
+		(generate-post-index webpage-dir)))))
 
 (defun generate-all-posts (pode)
   (with-slots (webpage-dir content-dir) pode
