@@ -65,4 +65,4 @@ CONTENT-DIR does not exist.
   (format t 
 		  "[commands]: '(help status gen clean gen-all)
 
-Evaluate \"(describe '<command>), e.g. (describe 'status)\" for more information."))
+Evaluate \"(describe '<command>)\", e.g. \"(describe 'status)\" for more information."))

@@ -21,8 +21,6 @@ can type the following lisp form into a Common Lisp REPL:
 
 ## Configuration
 
-In most cases, it should only necessary to edit	`config.lisp`.
-
 Change the values of `*blog-content-dir*` and `*blog-webpage-dir*` as
 appropriate in `config.lisp`.
 
