@@ -62,3 +62,7 @@ CONTENT-DIR does not exist.
 		  "[commands]: '(help status gen clean gen-all)
 
 Evaluate \"(describe '<command>), e.g. (describe 'status)\" for more information."))
+
+(defmethod print-object ((pode pode) stream)
+  (format stream "Content directory: ~a~%Webpage directory: ~a"
+		  (content-dir pode) (webpage-dir pode)))

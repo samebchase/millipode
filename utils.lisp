@@ -77,7 +77,7 @@ exists."
 	(map nil #'delete-file orphans)
 	(print-list-files "[deleted]" orphans)
 	(generate-post-index (webpage-dir pode))))
-	
+
 (defun content-post-newerp (post-text-file webpage-dir delay)
   (let ((generated-webpage (corresponding-webpage-file
                             post-text-file webpage-dir)))
@@ -95,4 +95,3 @@ exists."
 (defun print-list-files (string list)
   (unless (null list)
 	(format t "~a: ~{~a~%~}" string list)))
-
