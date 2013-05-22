@@ -1,4 +1,3 @@
-* TODO make having multiple podes possible
 * TODO incorporate markdown-parser
 ** TODO read-strings-from-file must go
 ** TODO trivial features of markdown-parser
@@ -7,11 +6,10 @@
 *** TODO (:code)
 *** TODO (:quote)
 * TODO html templating
+* TODO make having multiple podes easy
 * TODO try not to use global vars
 * TODO change pathnames when assert fails
-  The user should be able to set the pathnames when assert fails.
 * TODO with-existing-file
-* TODO orphaned-posts should have a more tasteful name
 * TODO [New features]
 ** TODO categorising posts: e.g. life:childhood.txt tech:code.txt etc.
 ** TODO grouping of posts
