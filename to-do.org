@@ -1,15 +1,13 @@
-* TODO easy configurability
-** TODO user configuration of *content-dir* and *webpage-dir* without having to edit millipode.lisp
-** TODO html templating
 * TODO make having multiple podes possible
-* TODO remove usage of global variables
-* TODO trivial features of markdown-parser
-** TODO (:link)
-** TODO (:img)
-** TODO (:code)
-** TODO (:quote)
-* TODO import symbols from packages to reduce verbosity
-* TODO easy deployment
+* TODO incorporate markdown-parser
+** TODO read-strings-from-file must go
+** TODO trivial features of markdown-parser
+*** TODO (:link)
+*** TODO (:img)
+*** TODO (:code)
+*** TODO (:quote)
+* TODO html templating
+* TODO try not to use global vars
 * TODO change pathnames when assert fails
   The user should be able to set the pathnames when assert fails.
 * TODO with-existing-file
