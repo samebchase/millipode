@@ -18,7 +18,7 @@
 	      (:div :id "content" :style "border-bottom: 0px; min-height: 300px" ;; TODO: inline-css ugh.
 		    (:h3 "archive")
 		    (:div :id "index_links"
-			  (loop for file in file-list 
+			  (loop for file in (reverse file-list)
 			     unless (string= (pathname-name file) "index") do
 			       (who:htm (:p
 				     (:a :href

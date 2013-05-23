@@ -45,15 +45,6 @@ corresponding file in content-dir."
                       separator
                       (alexandria:read-file-into-string pathspec))))
     string-list))
-
-;; FIXME: getting warnings due to unused var start
-
-(defun strip-date (post-text-pathspec)
-  "#P\"1984-04-15-post-name.txt\" => \"1984-04-15\" \"post-name.txt\""
-  (let ((namestring (namestring post-text-pathspec))
-		(regex "^([0-9]{4}-[0-9]{2}-[0-9]{2})-(.+)$"))
-	(ppcre:register-groups-bind (date post-name) (regex namestring)
-	  (values date post-name))))
 	
 (defun corresponding-webpage-file (post-text-file webpage-dir)
   (assert (fad:file-exists-p post-text-file))
