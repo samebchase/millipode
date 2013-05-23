@@ -2,27 +2,6 @@
 
 A static site generator that makes you want to write - frequently.
 
-## Building
-
-### Step 1:
-
-You'll need [Quicklisp](http://www.quicklisp.org/).
-
-After Quicklisp is installed, clone this repository into the
-`~/quicklisp/local-projects/` directory and then:
-
-`CL-USER> (ql:quickload :millipode)`
-
-Quicklisp will pull in all the dependencies of Millipode, and then
-build it.
-
-### Step 2:
-
-`CL-USER> (in-package :millipode)` and then, once you're in the
-package,
-
-`MILLIPODE> (help)` to give you the built in documentation.
-
 ## Configuration
 
 Change the values of `*blog-content-dir*` and `*blog-webpage-dir*` as
@@ -43,6 +22,25 @@ relevant sections of `html-gen.lisp`.
 Millipode will have to be rebuilt for the changes in `config.lisp` to
 take effect.
 
+## Building
+
+You'll need [Quicklisp](http://www.quicklisp.org/).
+
+After Quicklisp is installed, clone this repository into the
+`~/quicklisp/local-projects/` directory and then:
+
+`CL-USER> (ql:quickload :millipode)`
+
+Quicklisp will pull in all the dependencies of Millipode, and then
+build it.
+
+## Running
+
+`CL-USER> (in-package :millipode)` and then, once you're in the
+package,
+
+`MILLIPODE> (help)` to give you the built in documentation.
+
 ## Post format
 
 Eventually when [markdown-parser](https://github.com/samebchase) is
@@ -51,8 +49,8 @@ posts. For the time being, they have to be written in _plain_ plain
 text. Links, images and code-blocks are among the first features that
 I want to support.
 
-Write your posts in this format and save them with a `.txt` file
-extension in `*content-dir*`:
+Write your posts in this format and save them as
+`yyyy-mm-dd-post-name.txt` file extension in `*content-dir*`:
 
 		Your title goes here
 
