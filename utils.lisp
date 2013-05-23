@@ -13,14 +13,14 @@
 (defun list-modified-content (pode)
   "Lists the text files that are newer than their corresponding
 generated html files."
-  (with-existing-pode-slots pode 
+  (with-existing-pode-slots pode
     (loop for file in (ls content-dir)
        when (and (generated-webpage-p webpage-dir file)
                  (content-post-newerp file webpage-dir 2))
        collect file)))
 
 (defun list-new-content (pode)
-  (with-existing-pode-slots pode 
+  (with-existing-pode-slots pode
     (loop for file in (ls content-dir)
        unless (generated-webpage-p webpage-dir file)
        collect file)))
@@ -28,7 +28,7 @@ generated html files."
 (defun list-orphaned-webpages (pode)
   "Lists the webpages from webpage-dir that do not have a
 corresponding file in content-dir."
-  (with-existing-pode-slots pode 
+  (with-existing-pode-slots pode
     (let ((webpages (ls webpage-dir)))
       (loop for webpage in webpages unless
            (or (fad:file-exists-p (corresponding-text-file webpage content-dir))
@@ -46,6 +46,15 @@ corresponding file in content-dir."
                       (alexandria:read-file-into-string pathspec))))
     string-list))
 
+;; FIXME: getting warnings due to unused var start
+
+(defun strip-date (post-text-pathspec)
+  "#P\"1984-04-15-post-name.txt\" => \"1984-04-15\" \"post-name.txt\""
+  (let ((namestring (namestring post-text-pathspec))
+		(regex "^([0-9]{4}-[0-9]{2}-[0-9]{2})-(.+)$"))
+	(ppcre:register-groups-bind (date post-name) (regex namestring)
+	  (values date post-name))))
+	
 (defun corresponding-webpage-file (post-text-file webpage-dir)
   (assert (fad:file-exists-p post-text-file))
   (make-pathname :name (pathname-name post-text-file)
@@ -74,9 +83,9 @@ exists."
 
 (defun delete-orphaned-webpages (pode)
   (let ((orphans (list-orphaned-webpages pode)))
-	(map nil #'delete-file orphans)
-	(print-list-files "[deleted]" orphans)
-	(generate-post-index (webpage-dir pode))))
+    (map nil #'delete-file orphans)
+    (print-list-files "[deleted]" orphans)
+    (generate-post-index (webpage-dir pode))))
 
 (defun content-post-newerp (post-text-file webpage-dir delay)
   (let ((generated-webpage (corresponding-webpage-file
@@ -94,4 +103,4 @@ exists."
 
 (defun print-list-files (string list)
   (unless (null list)
-	(format t "~a: ~{~a~%~}" string list)))
+    (format t "~a: ~{~a~%~}" string list)))

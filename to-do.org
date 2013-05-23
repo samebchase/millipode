@@ -1,3 +1,4 @@
+* TODO split building section
 * TODO incorporate markdown-parser
 ** TODO read-strings-from-file must go
 ** TODO trivial features of markdown-parser
