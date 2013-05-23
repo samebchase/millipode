@@ -2,22 +2,26 @@
 
 A static site generator that makes you want to write - frequently.
 
-## Dependencies
+## Building
 
-If you don't have [Quicklisp](http://www.quicklisp.org/) installed, you
-will need to get these:
+### Step 1:
 
-- [ASDF](http://common-lisp.net/project/asdf/): kinda like `make` for Lisp.
-- [CL-WHO](http://weitz.de/cl-who/): for HTML output.
-- [CL-FAD](http://weitz.de/cl-fad/): handling pathnames.
-- [CL-PPCRE](http://weitz.de/cl-ppcre/): regular expressions.
-- [Alexandria](http://common-lisp.net/project/alexandria/): commonly
-  used utilities.
+You'll need [Quicklisp](http://www.quicklisp.org/).
 
-If you've got [Quicklisp](http://www.quicklisp.org/) installed, you
-can type the following lisp form into a Common Lisp REPL:
+After Quicklisp is installed, clone this repository into the
+`~/quicklisp/local-projects/` directory and then:
 
-`CL-USER> (ql:quickload '(cl-fad cl-who cl-ppcre alexandria))`
+`CL-USER> (ql:quickload :millipode)`
+
+Quicklisp will pull in all the dependencies of Millipode, and then
+build it.
+
+### Step 2:
+
+`CL-USER> (in-package :millipode)` and then, once you're in the
+package,
+
+`MILLIPODE> (help)` to give you the built in documentation.
 
 ## Configuration
 
@@ -62,33 +66,6 @@ extension in `*content-dir*`:
 
 Millipode is currently known to build on:
 - SBCL
-
-## Building
-
-### Step 1:
-
-If you're in the `src` directory of Millipode, you can just do:
-
-`CL-USER> (asdf:oos 'asdf:load-op :millipode)`
-
-If you're not in the `src` directory of Millipode, you will have to
-add Millipode's `src` path to ASDF's `*central-registry*` by:
-
-`CL-USER> (push #P"/path/to/millipode/src/" asdf:*central-registry*)`
-
-Once that's done, you can either do:
-
-`CL-USER> (ql:quickload :millipode)` if you've got Quicklisp
-installed, or:
-
-`CL-USER> (asdf:oos 'asdf:load-op :millipode)` like before.
-
-### Step 2:
-
-`CL-USER> (in-package :millipode)` and then, once you're in the
-package,
-
-`MILLIPODE> (help)` to give you the built in documentation.
 
 ## Contributions
 
