@@ -5,13 +5,14 @@
 *** TODO (:img)
 *** TODO (:code)
 *** TODO (:quote)
+* TODO [New features]
+** TODO post dates
+   dates on the first line of the plain text posts
+** TODO categorising posts: e.g. life:childhood.txt tech:code.txt etc.
+** TODO grouping of posts
+** TODO ordered and unordered posts?
 * TODO html templating
 * TODO make having multiple podes easy
 * TODO try not to use global vars
 * TODO change pathnames when assert fails
 * TODO with-existing-file
-* TODO [New features]
-** TODO categorising posts: e.g. life:childhood.txt tech:code.txt etc.
-** TODO grouping of posts
-** TODO post dates
-** TODO ordered and unordered posts?
