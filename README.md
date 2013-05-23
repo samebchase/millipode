@@ -2,6 +2,18 @@
 
 A static site generator that makes you want to write - frequently.
 
+## Building
+
+You'll need [Quicklisp](http://www.quicklisp.org/).
+
+After Quicklisp is installed, clone this repository into the
+`~/quicklisp/local-projects/` directory and then:
+
+`CL-USER> (ql:quickload :millipode)`
+
+Quicklisp will pull in all the dependencies of Millipode, and then
+build it.
+
 ## Configuration
 
 Change the values of `*blog-content-dir*` and `*blog-webpage-dir*` as
@@ -21,18 +33,6 @@ relevant sections of `html-gen.lisp`.
 
 Millipode will have to be rebuilt for the changes in `config.lisp` to
 take effect.
-
-## Building
-
-You'll need [Quicklisp](http://www.quicklisp.org/).
-
-After Quicklisp is installed, clone this repository into the
-`~/quicklisp/local-projects/` directory and then:
-
-`CL-USER> (ql:quickload :millipode)`
-
-Quicklisp will pull in all the dependencies of Millipode, and then
-build it.
 
 ## Running
 
