@@ -63,7 +63,12 @@ Write your posts in this format and save them as
 ## Portability
 
 Millipode is currently known to build on:
-- SBCL
+
+- SBCL 1.1.7
+- CCL 1.9-r15757
+- CLISP 2.49
+- ECL 12.12.1
+- ABCL 1.1.1
 
 ## Contributions
 

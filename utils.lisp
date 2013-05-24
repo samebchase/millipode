@@ -45,7 +45,7 @@ corresponding file in content-dir."
                       separator
                       (alexandria:read-file-into-string pathspec))))
     string-list))
-	
+
 (defun corresponding-webpage-file (post-text-file webpage-dir)
   (assert (fad:file-exists-p post-text-file))
   (make-pathname :name (pathname-name post-text-file)
