@@ -22,19 +22,19 @@
 (defun generate-modified-posts (pode)
   "Regenerates the html for the modified files in content-dir."
   (with-existing-pode-slots pode
-	(map nil (alexandria:curry #'generate-post webpage-dir)
-		 (list-modified-content pode))))
+    (map nil (alexandria:curry #'generate-post webpage-dir)
+         (list-modified-content pode))))
 
 (defun generate-new-posts (pode)
   "Generates the html for the newly added files in content-dir."
   (let ((new-content (list-new-content pode)))
-	(when new-content
-	  (with-existing-pode-slots pode
-		(map nil (alexandria:curry #'generate-post webpage-dir) new-content)
-		(generate-post-index pode)))))
+    (when new-content
+      (with-existing-pode-slots pode
+        (map nil (alexandria:curry #'generate-post webpage-dir) new-content)
+        (generate-post-index pode)))))
 
 (defun generate-all-posts (pode)
   (with-existing-pode-slots pode
     (map nil (alexandria:curry #'generate-post webpage-dir)
-		 (ls content-dir))
+         (ls content-dir))
     (generate-post-index pode)))

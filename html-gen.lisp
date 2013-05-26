@@ -1,4 +1,4 @@
-(in-package :millipode) 
+(in-package :millipode)
 
 (setf (cl-who:html-mode) :html5)
 

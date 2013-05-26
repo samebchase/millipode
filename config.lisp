@@ -11,7 +11,6 @@
 (defparameter *blog-pode*
   (make-instance 'pode
                  :content-dir
-				 (fad:pathname-as-directory *blog-content-dir*)
+                 (fad:pathname-as-directory *blog-content-dir*)
                  :webpage-dir
-				 (fad:pathname-as-directory *blog-webpage-dir*)))
-
+                 (fad:pathname-as-directory *blog-webpage-dir*)))

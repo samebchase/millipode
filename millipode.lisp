@@ -43,6 +43,6 @@ CONTENT-DIR does not exist.
 (defun help ()
   "Lists available commands"
   (format t 
-		  "[commands]: '(help status gen clean gen-all)
+          "[commands]: '(help status gen clean gen-all)
 
 Evaluate \"(describe '<command>)\", e.g. \"(describe 'status)\" for more information."))
