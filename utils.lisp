@@ -95,3 +95,9 @@ exists."
 (defun print-list-files (string list)
   (unless (null list)
     (format t "~a: ~{~a~%~}" string list)))
+
+(defun get-post-title (filespec)
+  (flet ((get-first-line (filespec)
+           (with-open-file (stream filespec)
+             (read-line stream))))
+    (get-first-line filespec)))
