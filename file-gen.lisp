@@ -9,14 +9,15 @@
    :if-exists :supersede :if-does-not-exist :create)
   nil)
 
-(defun generate-post-index (webpage-dir)
+(defun generate-post-index (pode)
   "Indexes all the posts in webpage dir."
-  (format t "Generating the index.~%")
-  (alexandria:write-string-into-file 
-   (generate-post-index-html webpage-dir)
-   (merge-pathnames webpage-dir #P"index.html")
-   :if-exists :supersede :if-does-not-exist :create)
-  nil)
+  (with-existing-pode-slots pode
+    (format t "Generating the index.~%")
+    (alexandria:write-string-into-file 
+     (generate-post-index-html pode)
+     (merge-pathnames webpage-dir #P"index.html")
+     :if-exists :supersede :if-does-not-exist :create)
+    nil))
 
 (defun generate-modified-posts (pode)
   "Regenerates the html for the modified files in content-dir."
@@ -30,10 +31,10 @@
 	(when new-content
 	  (with-existing-pode-slots pode
 		(map nil (alexandria:curry #'generate-post webpage-dir) new-content)
-		(generate-post-index webpage-dir)))))
+		(generate-post-index pode)))))
 
 (defun generate-all-posts (pode)
   (with-existing-pode-slots pode
     (map nil (alexandria:curry #'generate-post webpage-dir)
 		 (ls content-dir))
-    (generate-post-index webpage-dir)))
+    (generate-post-index pode)))
