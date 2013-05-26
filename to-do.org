@@ -1,3 +1,6 @@
+* TODO easy html templating config
+* TODO major html cleanup
+* TODO date +%Y-%m-%d elisp + shell function
 * TODO incorporate markdown-parser
 ** TODO read-strings-from-file must go
 ** TODO trivial features of markdown-parser
@@ -5,10 +8,7 @@
 *** TODO (:img)
 *** TODO (:code)
 *** TODO (:quote)
-* TODO [New features]
-** TODO categorising posts: e.g. life:childhood.txt tech:code.txt etc.
-** TODO grouping of posts
-* TODO html templating
+* TODO categorising posts: e.g. tech:code.txt
 * TODO make having multiple podes easy
 * TODO try not to use global vars
 * TODO change pathnames when assert fails
