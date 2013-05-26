@@ -38,7 +38,7 @@
        (:head
         (:link :href "../css/style.css" :rel "stylesheet" :type "text/css" :media "screen")
         (:link :rel "icon" :type "image/png" :href "../img/s.png")
-        (:title (who:esc (pathname-name file))))
+        (:title (who:esc (get-post-title file))))
        (:body
         (:div :id "container"
               (:div :id "header"
