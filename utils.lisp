@@ -1,7 +1,8 @@
 (in-package :millipode)
 
 (defmacro with-existing-pode-slots (pode &body body)
-  `(with-slots (content-dir webpage-dir) ,pode
+  `(with-accessors ((content-dir content-dir)
+                    (webpage-dir webpage-dir)) ,pode
      (assert (and (fad:directory-exists-p content-dir)
                   (fad:directory-exists-p webpage-dir))
              (content-dir webpage-dir))
