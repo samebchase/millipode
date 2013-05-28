@@ -12,3 +12,7 @@ generated."))
 (defmethod print-object ((pode pode) stream)
   (format stream "Content directory: ~a~%Webpage directory: ~a"
 		  (content-dir pode) (webpage-dir pode)))
+
+(defun pode-equal (pode-a pode-b)
+  (and (fad:pathname-equal (content-dir pode-a) (content-dir pode-b))
+       (fad:pathname-equal (webpage-dir pode-a) (webpage-dir pode-b))))
