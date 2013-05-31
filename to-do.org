@@ -1,3 +1,4 @@
+* TODO RSS feed
 * TODO easy html templating config
 * TODO major html cleanup
 * TODO date +%Y-%m-%d elisp + shell function

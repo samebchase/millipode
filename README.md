@@ -16,12 +16,12 @@ build it.
 
 ## Configuration
 
-Change the values of `*blog-content-dir*` and `*blog-webpage-dir*` as
+Change the values of `+blog-content-dir+` and `+blog-webpage-dir+` as
 appropriate in `config.lisp`.
 
-`*blog-content-dir*` is meant to be the directory containing text files.
+`+blog-content-dir+` is meant to be the directory containing text files.
 
-`*blog-webpage-dir*` is meant to be the directory in which the HTML
+`+blog-webpage-dir+` is meant to be the directory in which the HTML
 files should be generated.
 
 _Note:_ There should be a trailing slash for a directory
@@ -50,7 +50,7 @@ text. Links, images and code-blocks are among the first features that
 I want to support.
 
 Write your posts in this format and save them as
-`yyyy-mm-dd-post-name.txt` file extension in `*content-dir*`:
+`yyyy-mm-dd-post-name.txt` file extension in `+content-dir+`:
 
 		Your title goes here
 
