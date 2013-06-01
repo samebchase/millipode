@@ -5,6 +5,7 @@
   (:export :status
            :gen
            :gen-all
+           :index
            :clean
            :help))
 

@@ -1,7 +1,8 @@
 (in-package :millipode)
 
 (defun status ()
-  "If status returns NIL, that means there is nothing to be done.
+  "
+If status returns NIL, that means there is nothing to be done.
 
 The three statuses are: new, modified and orphaned.
 
@@ -40,9 +41,18 @@ CONTENT-DIR does not exist.
   "Deletes orphaned webpages and updates the index."
   (delete-orphaned-webpages +blog-pode+))
 
+(defun index ()
+  "
+Updates the index.
+
+You normally won't need to run this, unless you've changed the titles
+of one of the posts, and you want the index to reflect that.
+"
+  (generate-post-index +blog-pode+))
+
 (defun help ()
   "Lists available commands"
   (format t 
-          "[commands]: '(help status gen clean gen-all)
+          "[commands]: '(help status gen clean gen-all index)
 
 Evaluate \"(describe '<command>)\", e.g. \"(describe 'status)\" for more information."))
