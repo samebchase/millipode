@@ -2,9 +2,9 @@
 
 (defun status ()
   "
-If status returns NIL, that means there is nothing to be done.
+(status) returns NIL, when there is nothing to be done.
 
-The three statuses are: new, modified and orphaned.
+The three other statuses are: new, modified and orphaned.
 
 [new]:
 

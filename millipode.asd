@@ -1,3 +1,8 @@
+(defpackage :millipode-system
+   (:use :cl :asdf))
+
+(in-package :millipode-system)
+
 (asdf:defsystem #:millipode
   :serial t
   :description "A static site generator."

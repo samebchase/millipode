@@ -77,7 +77,7 @@ exists."
   (let ((orphans (list-orphaned-webpages pode)))
     (map nil #'delete-file orphans)
     (print-list-files "[deleted]" orphans)
-    (generate-post-index (webpage-dir pode))))
+    (generate-post-index pode)))
 
 (defun content-post-newerp (post-text-file webpage-dir delay)
   (let ((generated-webpage (corresponding-webpage-file
