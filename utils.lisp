@@ -3,6 +3,7 @@
 (defmacro with-existing-pode-slots (pode &body body)
   `(with-accessors ((content-dir content-dir)
                     (webpage-dir webpage-dir)) ,pode
+     (check-type ,pode pode)
      (assert (and (fad:directory-exists-p content-dir)
                   (fad:directory-exists-p webpage-dir))
              (content-dir webpage-dir))
@@ -68,16 +69,18 @@ corresponding file in content-dir."
 
 (defun generated-webpage-p (webpage-dir content-file)
   "Predicate that tests whether a text-file's corresponding webpage
-exists."
+has been generated."
   (assert (and (fad:directory-exists-p webpage-dir)
                (fad:file-exists-p content-file)))
   (fad:file-exists-p (corresponding-webpage-file content-file webpage-dir)))
 
 (defun delete-orphaned-webpages (pode)
+  "Deletes orphaned webpages and updates the index, if necessary."
   (let ((orphans (list-orphaned-webpages pode)))
     (map nil #'delete-file orphans)
     (print-list-files "[deleted]" orphans)
-    (generate-post-index pode)))
+    (when orphans
+      (generate-post-index pode))))
 
 (defun content-post-newerp (post-text-file webpage-dir delay)
   (let ((generated-webpage (corresponding-webpage-file
