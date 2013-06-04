@@ -32,6 +32,7 @@
                                     (:div :id "empty_box"))))))))))))
 
 (defun gen-blog-post-html (file)
+  (check-type file pathname)
   (let ((string-list (read-file-into-strings file "\\n\\n")))
     (who:with-html-output-to-string (*standard-output* nil :indent t :prologue t)
       (:html

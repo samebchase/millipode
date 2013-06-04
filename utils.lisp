@@ -110,6 +110,7 @@ has been generated."
       (values date post-name file-ext))))
 
 (defun get-post-title (filespec)
+  (assert (regular-file-exists-p filespec))
   (flet ((get-first-line (filespec)
            (with-open-file (stream filespec)
              (read-line stream))))
