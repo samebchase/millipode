@@ -5,7 +5,7 @@
 (defun generate-post-index-html (pode)
   (with-existing-pode-slots pode
     (flet ((webpage (post)
-             (file-namestring (corresponding-webpage-file post webpage-dir))))
+             (file-namestring (corresponding-webpage-file pode post))))
     (let ((posts (ls content-dir)))
       (with-html-output-to-string (*standard-output* nil :indent t :prologue t)
         (:html

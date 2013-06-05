@@ -1,5 +1,17 @@
 (in-package :millipode)
 
+;; id
+;; title
+;; updated
+
+;; ((id "") (title "") (updated ""))
+
+(defun post-metadata (pode post)
+  (let ((timestamp (nth-value 0 (split-date-name-file-ext post)))
+        (title (get-post-title post))
+        (webpage (corresponding-webpage-file pode post)))
+    (list title timestamp webpage)))
+
 (defun split-date-name-file-ext (pathspec)
   "#P\"1984-04-15-post-name.html\" => \"1984-04-15\" \"post-name\" \"html\""
   (let ((date-post-name (file-namestring pathspec))

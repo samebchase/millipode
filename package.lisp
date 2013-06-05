@@ -15,6 +15,7 @@
   (:import-from :alexandria
                 :curry
                 :define-constant
+                :read-file-into-string
                 :write-string-into-file)
   (:import-from :cl-fad
                 :file-exists-p

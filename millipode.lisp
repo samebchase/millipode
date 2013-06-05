@@ -1,8 +1,7 @@
 (in-package :millipode)
 
 (defun status ()
-  "
-(status) returns NIL, when there is nothing to be done.
+  "(status) returns NIL, when there is nothing to be done.
 
 The three other statuses are: new, modified and orphaned.
 
