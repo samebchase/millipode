@@ -1,16 +1,23 @@
 (in-package :millipode)
 
-;;;; Edit the pathspecs as appropriate
+;;;; Main configuration Edit the pathspecs as appropriate
 
-(alexandria:define-constant +blog-content-dir+
+(define-constant +blog-content-dir+
   #P"/home/samuel/projects/samebchase.com/site/content/" :test #'fad:pathname-equal)
 
-(alexandria:define-constant +blog-webpage-dir+    
+(define-constant +blog-webpage-dir+    
   #P"/home/samuel/projects/samebchase.com/site/p/" :test #'fad:pathname-equal)
 
-(alexandria:define-constant +blog-pode+
+(define-constant +blog-pode+
   (make-instance 'pode
                  :content-dir
-                 (fad:pathname-as-directory +blog-content-dir+)
+                 (pathname-as-directory +blog-content-dir+)
                  :webpage-dir
-                 (fad:pathname-as-directory +blog-webpage-dir+)) :test #'pode-equal)
+                 (pathname-as-directory +blog-webpage-dir+)) :test #'pode-equal)
+
+;;;; Optional configuration data for feeds
+
+(define-constant +uri+          "http://www.samebchase.com/" :test #'string=)
+(define-constant +title+        "Samuel Chase's archive"     :test #'string=)
+(define-constant +author-name+  "Samuel Chase"               :test #'string=)
+(define-constant +author-email+ "samebchase@gmail.com"       :test #'string=)

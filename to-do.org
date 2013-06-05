@@ -1,4 +1,8 @@
 * TODO RSS feed
+  (cxml:with-xml-output (cxml:make-string-sink :indentation 2 :canonical nil)
+     (cxml:with-element "foo"
+        (cxml:attribute "xyz" "abc")))
+* TODO tests
 * TODO easy html templating config
 * TODO major html cleanup
 * TODO incorporate markdown-parser
