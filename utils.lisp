@@ -12,6 +12,11 @@
 (defun ls (dir)
   (list-directory dir))
 
+(defun list-by-extension (dir ext)
+  (loop for file in (ls dir)
+     when (string= (pathname-type file) ext)
+     collect file))
+
 (defun list-modified-content (pode)
   "Lists the text files that are newer than their corresponding
 generated html files."
