@@ -1,7 +1,8 @@
-core*
 *.fasl
 *.lib
 *~
 load
+pode
+dump
 \#*
 .\#*
