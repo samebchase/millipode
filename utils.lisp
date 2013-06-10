@@ -106,3 +106,6 @@ has been generated."
 (defun print-list-files (string list)
   (unless (null list)
     (format t "~a: ~{~a~%~}" string list)))
+
+(defun cmd-line-args ()
+  sb-ext:*posix-argv*)

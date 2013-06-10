@@ -1,5 +1,13 @@
 (in-package :millipode)
 
+(define-constant +pode-functions+
+    '(("help"    . help)
+      ("status"  . status)
+      ("gen"     . gen)
+      ("clean"   . clean)
+      ("gen-all" . gen-all)
+      ("index"   . index)) :test #'equal)
+
 (defun status ()
   "(status) returns NIL, when there is nothing to be done.
 
@@ -55,3 +63,11 @@ of one of the posts, and you want the index to reflect that.
           "[commands]: '(help status gen clean gen-all index)
 
 Evaluate \"(describe '<command>)\", e.g. \"(describe 'status)\" for more information."))
+
+(defun cli ()
+  (let* ((arg           (second (cmd-line-args)))
+         (pode-function (cdr (assoc arg +pode-functions+ :test #'equal))))
+    (if pode-function
+        (funcall pode-function)
+        (error "Available arguments are: help, status, gen, clean,
+        gen-all and index"))))
