@@ -26,8 +26,11 @@ take effect.
 
 You'll need [Quicklisp](http://www.quicklisp.org/).
 
-After Quicklisp is installed, clone this repository into the
-`~/quicklisp/local-projects/` directory and then:
+After Quicklisp is installed:
+
+1. Clone this repository into the `~/quicklisp/local-projects/`
+directory by: `git clone https://github.com/samebchase/millipode.git
+~/quicklisp/local-projects/`
 
 `CL-USER> (ql:quickload :millipode)`
 
