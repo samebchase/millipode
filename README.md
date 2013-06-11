@@ -63,7 +63,7 @@ with a name specified by `+image-file-name+` in `config.lisp`.
 
 This executable image can be put in your `$PATH` e.g. in `~/bin/`.
 
-For example, if +image-file-name+` is `pode` you can use millipode by:
+For example, if `+image-file-name+` is `pode` you can use millipode by:
 `$ ./pode help`
 
 ## Post format
