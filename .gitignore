@@ -2,6 +2,7 @@
 *.lib
 *~
 load
+test-core.lisp
 pode
 dump
 \#*

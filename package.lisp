@@ -10,7 +10,8 @@
            :gen-all
            :index
            :clean
-           :help)
+           :help
+           :make-executable-image)
   (:import-from :alexandria
                 :curry
                 :define-constant
