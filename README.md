@@ -93,7 +93,6 @@ Millipode is currently known to build on:
 - CCL 1.9-r15757
 - CLISP 2.49
 - ECL 12.12.1
-- ABCL 1.1.1
 
 ## Contributions
 
