@@ -10,8 +10,7 @@
            :gen-all
            :index
            :clean
-           :help
-           :+blog-pode+)
+           :help)
   (:import-from :alexandria
                 :curry
                 :define-constant
@@ -19,6 +18,7 @@
                 :write-string-into-file)
   (:import-from :cl-fad
                 :file-exists-p
+                :pathname-equal
                 :list-directory
                 :directory-exists-p
                 :directory-pathname-p
@@ -33,4 +33,7 @@
                 :attribute
                 :with-element
                 :with-xml-output
-                :make-string-sink))
+                :make-string-sink)
+  (:import-from :uiop
+                :quit))
+ 

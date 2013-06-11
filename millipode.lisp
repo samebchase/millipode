@@ -52,8 +52,8 @@ CONTENT-DIR does not exist.
   "
 Updates the index.
 
-You normally won't need to run this, unless you've changed the titles
-of one of the posts, and you want the index to reflect that.
+You normally won't need to run this, unless you really want to
+generate the index again.
 "
   (generate-post-index +blog-pode+))
 
@@ -69,5 +69,5 @@ Evaluate \"(describe '<command>)\", e.g. \"(describe 'status)\" for more informa
          (pode-function (cdr (assoc arg +pode-functions+ :test #'equal))))
     (if pode-function
         (funcall pode-function)
-        (error "Available arguments are: help, status, gen, clean,
-        gen-all and index"))))
+        (format t "Available commands are: help, status, gen, clean, gen-all and index.~%"))
+    (quit)))
