@@ -32,7 +32,9 @@ After Quicklisp is installed:
 directory by: `git clone https://github.com/samebchase/millipode.git
 ~/quicklisp/local-projects/`
 
-`CL-USER> (ql:quickload :millipode)`
+2. `CL-USER> (ql:quickload :millipode)`
+
+3. That's it! You are now ready to use Millipode.
 
 Quicklisp will pull in all the dependencies of Millipode, and then
 build it.
@@ -42,13 +44,17 @@ build it.
 After Millipode has been built, it can be used from the REPL and also
 as a standalone executable.
 
-`CL-USER> (in-package :millipode)`
+Do `CL-USER> (in-package :millipode)` to get into the `:millipode`
+package (i.e. namespace). If you don't do this, every command has to
+be prefixed with the package name e.g. `CL-USER> (millipode:help)`.
 
 ### REPL
 
 `MILLIPODE> (help)` to give you the built in documentation.
 
 ### Command-line
+
+Using Millipode from the command line is the recommended way.
 
 Making executable images is supported on the following
 implementations:
