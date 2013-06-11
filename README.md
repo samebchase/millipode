@@ -2,18 +2,6 @@
 
 A static site generator that makes you want to write - frequently.
 
-## Building
-
-You'll need [Quicklisp](http://www.quicklisp.org/).
-
-After Quicklisp is installed, clone this repository into the
-`~/quicklisp/local-projects/` directory and then:
-
-`CL-USER> (ql:quickload :millipode)`
-
-Quicklisp will pull in all the dependencies of Millipode, and then
-build it.
-
 ## Configuration
 
 Change the values of `+blog-content-dir+` and `+blog-webpage-dir+` as
@@ -34,12 +22,49 @@ relevant sections of `html-gen.lisp`.
 Millipode will have to be rebuilt for the changes in `config.lisp` to
 take effect.
 
+## Building
+
+You'll need [Quicklisp](http://www.quicklisp.org/).
+
+After Quicklisp is installed, clone this repository into the
+`~/quicklisp/local-projects/` directory and then:
+
+`CL-USER> (ql:quickload :millipode)`
+
+Quicklisp will pull in all the dependencies of Millipode, and then
+build it.
+
 ## Running
 
-`CL-USER> (in-package :millipode)` and then, once you're in the
-package,
+After Millipode has been built, it can be used from the REPL and also
+as a standalone executable.
+
+`CL-USER> (in-package :millipode)`
+
+### REPL
 
 `MILLIPODE> (help)` to give you the built in documentation.
+
+### Command-line
+
+Making executable images is supported on the following
+implementations:
+
+1. SBCL
+2. CLISP
+3. CCL
+
+To make the executable image:
+
+`MILLIPODE> (make-executable-image)`
+
+This will make an executable image in the current working directory
+with a name specified by `+image-file-name+` in `config.lisp`.
+
+This executable image can be put in your `$PATH` e.g. in `~/bin/`.
+
+For example, if +image-file-name+` is `pode` you can use millipode by:
+`$ ./pode help`
 
 ## Post format
 
