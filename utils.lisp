@@ -109,9 +109,7 @@ has been generated."
 
 (defun cmd-line-args ()
   (or
-   #+clisp (ext:argv)
+   #+clisp (coerce (ext:argv) 'list)
    #+sbcl sb-ext:*posix-argv*
-   #+abcl ext:*command-line-argument-list*
    #+clozure (ccl::command-line-arguments)
-   #+ecl (loop for i from 0 below (si:argc) collect (si:argv i))
    nil))

@@ -15,6 +15,10 @@
                  :webpage-dir
                  (pathname-as-directory +blog-webpage-dir+)) :test #'pode-equal)
 
+;;;; The name of the executable program
+
+(define-constant +image-file-name+ "pode" :test #'string=)
+
 ;;;; Optional configuration data for feeds
 
 (define-constant +uri+          "http://www.samebchase.com/" :test #'string=)
