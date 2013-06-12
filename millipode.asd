@@ -10,7 +10,6 @@
   :license     "MIT"
   :depends-on (#:alexandria
                #:cxml
-               #:uiop
                #:cl-fad
                #:cl-who
                #:cl-ppcre)

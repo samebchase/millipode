@@ -113,3 +113,9 @@ has been generated."
    #+sbcl sb-ext:*posix-argv*
    #+clozure (ccl::command-line-arguments)
    nil))
+
+(defun cli-quit ()
+  #+sbcl    (sb-ext:exit)
+  #+clozure (ccl:quit)
+  #+clisp   (ext:quit)
+  )

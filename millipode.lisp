@@ -70,7 +70,7 @@ Evaluate \"(describe '<command>)\", e.g. \"(describe 'status)\" for more informa
     (if pode-function
         (funcall pode-function)
         (format t "Available commands are: help, status, gen, clean, gen-all and index.~%"))
-    (quit)))
+    (cli-quit)))
 
 (defun make-executable-image ()
   #+sbcl    (sb-ext:save-lisp-and-die +image-file-name+ :toplevel          'cli :executable t)
