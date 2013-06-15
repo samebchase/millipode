@@ -1,5 +1,3 @@
-;;;; package.lisp
-
 (in-package :cl-user)
 
 (defpackage :millipode
@@ -34,7 +32,6 @@
                 :attribute
                 :with-element
                 :with-xml-output
-                :make-string-sink)
-  (:import-from :uiop
-                :quit))
+                :make-string-sink))
+
  
