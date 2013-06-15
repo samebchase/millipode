@@ -77,14 +77,9 @@ For example, if `+image-file-name+` is `pode` you can use millipode by:
 
 ## Post format
 
-Eventually when [markdown-parser](https://github.com/samebchase) is
-working well enough, I hope to use markdown as the format for writing
-posts. For the time being, they have to be written in _plain_ plain
-text. Links, images and code-blocks are among the first features that
-I want to support.
-
-Write your posts in this format and save them as
-`yyyy-mm-dd-post-name.txt` file extension in `+content-dir+`:
+Write your posts in Markdown, with the title on the first line. To get
+reverse-chronological ordering of posts, save them as
+`yyyy-mm-dd-post-name.txt` in `+content-dir+`:
 
 		Your title goes here
 
