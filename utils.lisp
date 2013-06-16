@@ -1,14 +1,5 @@
 (in-package :millipode)
 
-(defmacro with-existing-pode-slots (pode &body body)
-  `(with-accessors ((content-dir content-dir)
-                    (webpage-dir webpage-dir)) ,pode
-     (check-type ,pode pode)
-     (assert (and (directory-exists-p content-dir)
-                  (directory-exists-p webpage-dir))
-             (content-dir webpage-dir))
-     ,@body))
-
 (defun ls (dir)
   (list-directory dir))
 

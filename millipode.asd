@@ -11,6 +11,8 @@
   :depends-on (#:alexandria
                #:cxml
                #:cl-fad
+               #:html-template
+               #:3bmd
                #:cl-who
                #:cl-ppcre)
   :components ((:file "package")
