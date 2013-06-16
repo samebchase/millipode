@@ -87,13 +87,6 @@ has been generated."
        (when (not (directory-pathname-p file))
          (delete-file file))))
 
-(defun read-file-into-strings (pathspec separator)
-  (assert (regular-file-exists-p pathspec))
-  (let ((string-list (ppcre:split
-                      separator
-                      (read-file-into-string pathspec))))
-    string-list))
-
 (defun print-list-files (string list)
   (unless (null list)
     (format t "~a: ~{~a~%~}" string list)))

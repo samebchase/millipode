@@ -26,4 +26,10 @@
   (flet ((get-first-line (filespec)
            (with-open-file (stream filespec)
              (read-line stream))))
-    (get-first-line filespec)))
+    (let ((regex "(#+ *)(.+)$")
+          (title-line (get-first-line filespec)))
+      (ppcre:register-groups-bind
+          (heading-level title)
+          (regex title-line)
+        (declare (ignore heading-level))
+        title))))

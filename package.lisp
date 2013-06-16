@@ -32,6 +32,11 @@
                 :attribute
                 :with-element
                 :with-xml-output
-                :make-string-sink))
+                :make-string-sink)
+  (:import-from :3bmd
+                :parse-string-and-print-to-stream)
+  (:import-from :html-template
+                :*string-modifier*
+                :fill-and-print-template))
 
  

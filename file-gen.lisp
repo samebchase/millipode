@@ -5,7 +5,7 @@
   "Generates a html file in webpage-dir."
   (format t "Generating: ~a.html~%" (pathname-name filepath))
   (write-string-into-file
-   (gen-blog-post-html filepath)
+   (gen-blog-post-html pode filepath)
    (corresponding-webpage-file pode filepath)
    :if-exists :supersede :if-does-not-exist :create)
   nil))

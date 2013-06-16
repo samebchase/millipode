@@ -30,24 +30,23 @@
                              (:div :id "footer"
                                    (:div :id "empty_box"))))))))))))
 
-(defun gen-blog-post-html (file)
+(defun markdown-to-html (file)
+  (let ((sstream (make-string-output-stream)))
+    (parse-string-and-print-to-stream
+     (read-file-into-string file) sstream)
+    (get-output-stream-string sstream)))
+
+(defun gen-blog-post-html (pode file)
+  "A post's HTML generated as a string."
+  (check-type pode pode)
   (check-type file pathname)
-  (let ((string-list (read-file-into-strings file "\\n\\n")))
-    (with-html-output-to-string (*standard-output* nil :indent t :prologue t)
-      (:html
-        (:head
-         (:link :href "../css/style.css" :rel "stylesheet" :type "text/css" :media "screen")
-         (:link :rel "icon" :type "image/png" :href "../img/s.png")
-         (:title (esc (get-post-title file))))
-        (:body
-         (:div :id "container"
-               (:div :id "header"
-                     (:ul (:li (:a :href "../index.html" "home"))
-                          (:li (:a :href "index.html" "archive"))))
-               (:div :id "sidebar")
-               (:div :id "content"
-                     (:h3 (esc (first string-list)))
-                     (loop for string in (rest string-list) do
-                          (htm (:p (esc string)))))
-               (:div :id "filler")
-               (:div :id "footer")))))))
+  (with-existing-pode-slots pode
+    (let* ((template-file (make-pathname :name "post.template"
+                                         :type "html"
+                                         :defaults template-dir))
+           (sstream (make-string-output-stream))
+           (values (list :title (get-post-title file)
+                         :post  (markdown-to-html file)))
+           (*string-modifier* #'identity))
+      (fill-and-print-template template-file values :stream sstream)
+      (get-output-stream-string sstream))))
