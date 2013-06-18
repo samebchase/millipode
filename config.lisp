@@ -3,21 +3,21 @@
 ;;;; Edit the pathspecs as appropriate.
 ;;;; Directories must have a trailing slash.
 
-(define-constant +blog-content-dir+
+(define-constant +site-content-dir+
     #P"/home/samuel/projects/samebchase.com/site/content/" :test #'pathname-equal)
-(define-constant +blog-webpage-dir+
+(define-constant +site-webpage-dir+
     #P"/home/samuel/projects/samebchase.com/site/p/" :test #'pathname-equal)
-(define-constant +blog-template-dir+
+(define-constant +site-template-dir+
     #P"/home/samuel/projects/samebchase.com/site/templates/" :test #'pathname-equal)
 
-(define-constant +blog-pode+
+(define-constant +site-pode+
   (make-instance 'pode
                  :content-dir
-                 (pathname-as-directory +blog-content-dir+)
+                 (pathname-as-directory +site-content-dir+)
                  :webpage-dir
-                 (pathname-as-directory +blog-webpage-dir+)
+                 (pathname-as-directory +site-webpage-dir+)
                  :template-dir
-                 (pathname-as-directory +blog-template-dir+))
+                 (pathname-as-directory +site-template-dir+))
   :test #'pode-equal)
 
 ;;;; Template file configuration

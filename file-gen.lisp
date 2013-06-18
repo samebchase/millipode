@@ -5,7 +5,7 @@
   "Generates a html file in webpage-dir."
   (format t "Generating: ~a.html~%" (pathname-name filepath))
   (write-string-into-file
-   (gen-blog-post-html pode filepath)
+   (generate-post-html pode filepath)
    (corresponding-webpage-file pode filepath)
    :if-exists :supersede :if-does-not-exist :create)
   nil))
@@ -40,4 +40,4 @@
 
 (defun generate-feed (pode)
   (with-existing-pode-slots pode
-    (generate-atom-feed-xml content-dir)))
+    (generate-atom-feed-xml pode)))

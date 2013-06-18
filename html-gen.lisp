@@ -22,7 +22,7 @@
      (read-file-into-string file) sstream)
     (get-output-stream-string sstream)))
 
-(defun gen-blog-post-html (pode file)
+(defun generate-post-html (pode file)
   "A post's HTML returned as a string."
   (check-type file pathname)
   (with-existing-pode-slots pode

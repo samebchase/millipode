@@ -28,25 +28,25 @@ time their corresponding html files have been generated.
 List of webpages in *WEBPAGE-DIR* for which a corresponding file in
 CONTENT-DIR does not exist.
 "
-  (let ((modified (list-modified-content  +blog-pode+))
-        (new      (list-new-content       +blog-pode+))
-        (orphaned (list-orphaned-webpages +blog-pode+)))
+  (let ((modified (list-modified-content  +site-pode+))
+        (new      (list-new-content       +site-pode+))
+        (orphaned (list-orphaned-webpages +site-pode+)))
     (print-list-files "[new]" new)
     (print-list-files "[modified]" modified)
     (print-list-files "[orphaned]" orphaned)))
 
 (defun gen ()
   "Generates new and modified posts. It updates the index, if necessary."
-  (generate-new-posts      +blog-pode+)
-  (generate-modified-posts +blog-pode+))
+  (generate-new-posts      +site-pode+)
+  (generate-modified-posts +site-pode+))
 
 (defun gen-all ()
   "Generates all posts and updates the index."
-  (generate-all-posts +blog-pode+))
+  (generate-all-posts +site-pode+))
 
 (defun clean ()
   "Deletes orphaned webpages and updates the index."
-  (delete-orphaned-webpages +blog-pode+))
+  (delete-orphaned-webpages +site-pode+))
 
 (defun index ()
   "
@@ -55,7 +55,7 @@ Updates the index.
 You normally won't need to run this, unless you really want to
 generate the index again.
 "
-  (generate-post-index +blog-pode+))
+  (generate-post-index +site-pode+))
 
 (defun help ()
   "Lists available commands"

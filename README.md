@@ -4,13 +4,22 @@ A static site generator that makes you want to write - frequently.
 
 ## Configuration
 
-Change the values of `+blog-content-dir+` and `+blog-webpage-dir+` as
+Change the values of `+site-content-dir+` and `+site-webpage-dir+` as
 appropriate in `config.lisp`.
 
-`+blog-content-dir+` is meant to be the directory containing text files.
+- `+site-content-dir+` is meant to be the directory containing text
+  files.
 
-`+blog-webpage-dir+` is meant to be the directory in which the HTML
-files should be generated.
+- `+site-webpage-dir+` is meant to be the directory in which the HTML
+  files should be generated.
+
+- `site-template-dir+` is meant to be the directory containing the HTML
+templates.
+
+- `+index-template-file+` a path to a HTML template for the posts
+  index page.
+
+- `+post-template-file+` a path to a HTML template for the posts.
 
 _Note:_ There should be a trailing slash for a directory
 e.g. `#P"path/to/foo/"` instead of `#P"path/to/foo"`. You may also
