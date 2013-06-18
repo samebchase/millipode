@@ -13,7 +13,7 @@ appropriate in `config.lisp`.
 - `+site-webpage-dir+` is meant to be the directory in which the HTML
   files should be generated.
 
-- `site-template-dir+` is meant to be the directory containing the HTML
+- `+site-template-dir+` is meant to be the directory containing the HTML
 templates.
 
 - `+index-template-file+` a path to a HTML template for the posts
@@ -32,6 +32,14 @@ Millipode will have to be rebuilt for the changes in `config.lisp` to
 take effect.
 
 ## Building
+
+Millipode is currently known to build on:
+
+- SBCL 1.1.7
+- CCL 1.9-r15757
+- CLISP 2.49
+- ECL 12.12.1
+- ABCL 1.1.1
 
 You'll need [Quicklisp](http://www.quicklisp.org/).
 
@@ -97,16 +105,6 @@ reverse-chronological ordering of posts, save them as
 		This is some text in the second paragraph.
 
 		etc.
-
-## Portability
-
-Millipode is currently known to build on:
-
-- SBCL 1.1.7
-- CCL 1.9-r15757
-- CLISP 2.49
-- ECL 12.12.1
-- ABCL 1.1.1
 
 ## Contributions
 
