@@ -5,16 +5,15 @@
 
 (asdf:defsystem #:millipode
   :serial t
-  :description "A static site generator."
-  :author      "Samuel Chase <samebchase@gmail.com> http://www.samebchase.com/"
+  :description "A static site generator that makes you want to write - frequently."
+  :author      "Samuel Chase <samebchase@gmail.com> website: http://www.samebchase.com/"
   :license     "MIT"
-  :depends-on (#:alexandria
+  :depends-on (#:3bmd
                #:cxml
                #:cl-fad
-               #:html-template
-               #:3bmd
-               #:cl-who
-               #:cl-ppcre)
+               #:cl-ppcre
+               #:alexandria
+               #:html-template)
   :components ((:file "package")
                (:file "pode")
                (:file "utils")

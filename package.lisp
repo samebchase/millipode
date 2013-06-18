@@ -22,11 +22,6 @@
                 :directory-exists-p
                 :directory-pathname-p
                 :pathname-as-directory)
-  (:import-from :cl-who
-                :htm
-                :esc
-                :escape-string
-                :with-html-output-to-string)
   (:import-from :cxml
                 :text
                 :attribute
