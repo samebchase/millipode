@@ -103,3 +103,12 @@ has been generated."
   #+clozure (ccl:quit)
   #+clisp   (ext:quit)
   )
+
+(defun new-post (pode post-name)
+  (with-existing-pode-slots pode
+    (let* ((today (register-groups-bind (date)
+                    ("^([0-9]{4}-[0-9]{2}-[0-9]{2}).*$" (to-rfc3339-timestring (now)))
+                   date))
+           (filename (concatenate 'string today "-" post-name ".txt")))
+      (merge-pathnames filename content-dir))))
+      

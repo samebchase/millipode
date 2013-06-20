@@ -22,6 +22,8 @@
                 :directory-exists-p
                 :directory-pathname-p
                 :pathname-as-directory)
+  (:import-from :cl-ppcre
+                :register-groups-bind)
   (:import-from :cxml
                 :text
                 :attribute
@@ -32,6 +34,9 @@
                 :parse-string-and-print-to-stream)
   (:import-from :html-template
                 :*string-modifier*
-                :fill-and-print-template))
+                :fill-and-print-template)
+  (:import-from :local-time
+                :now
+                :to-rfc3339-timestring))
 
  

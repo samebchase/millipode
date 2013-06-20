@@ -13,6 +13,7 @@
                #:cl-fad
                #:cl-ppcre
                #:alexandria
+               #:local-time
                #:html-template)
   :components ((:file "package")
                (:file "pode")
