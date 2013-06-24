@@ -37,7 +37,3 @@
     (map nil (curry #'generate-post pode)
          (ls content-dir))
     (generate-post-index pode)))
-
-(defun generate-feed (pode)
-  (with-existing-pode-slots pode
-    (generate-atom-feed-xml pode)))

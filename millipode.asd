@@ -18,8 +18,6 @@
   :components ((:file "package")
                (:file "pode")
                (:file "utils")
-               (:file "post-metadata")
-               (:file "feed")
                (:file "html-gen")
                (:file "file-gen")
                (:file "config")

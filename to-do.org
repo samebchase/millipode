@@ -1,9 +1,6 @@
-* TODO easy html templating config
-  html-template, 3bmd
 * TODO easy new-post
   date +%Y-%m-%d elisp + shell function or something like that
 * TODO example site
-* TODO RSS feed
 * TODO tests
 * TODO categorising posts: e.g. tech:code.txt
 * TODO make having multiple podes easy

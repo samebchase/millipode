@@ -104,6 +104,28 @@ has been generated."
   #+clisp   (ext:quit)
   )
 
+(defun split-date-name-file-ext (pathspec)
+  "#P\"1984-04-15-post-name.html\" => \"1984-04-15\" \"post-name\" \"html\""
+  (let ((date-post-name (file-namestring pathspec))
+        (regex "^([0-9]{4}-[0-9]{2}-[0-9]{2})-(.+)\\.(.+)$"))
+    (ppcre:register-groups-bind
+        (date post-name file-ext)
+        (regex date-post-name)
+      (values date post-name file-ext))))
+
+(defun get-post-title (filespec)
+  (assert (regular-file-exists-p filespec))
+  (flet ((get-first-line (filespec)
+           (with-open-file (stream filespec)
+             (read-line stream))))
+    (let ((regex "(#+ *)(.+)$")
+          (title-line (get-first-line filespec)))
+      (ppcre:register-groups-bind
+          (heading-level title)
+          (regex title-line)
+        (declare (ignore heading-level))
+        title))))
+
 (defun new-post (pode post-name)
   (with-existing-pode-slots pode
     (let* ((today (register-groups-bind (date)
@@ -111,4 +133,3 @@ has been generated."
                    date))
            (filename (concatenate 'string today "-" post-name ".txt")))
       (merge-pathnames filename content-dir))))
-      
