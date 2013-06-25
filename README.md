@@ -122,9 +122,9 @@ Millipode's core functionality is in these five functions:
 * `(status): Prints whether there are any new or modified posts in
   `+site-content-dir+`.
 
-* `(index): Generates the index.
+* `(index)`: Generates the index.
 
-* `(clean): Deletes files from `+site-webpage-dir+` that don't have a
+* `(clean)`: Deletes files from `+site-webpage-dir+` that don't have a
   corresponding content post in `+site-content-dir+`.
 
 ## Post format
