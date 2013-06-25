@@ -1,12 +1,14 @@
 (in-package :millipode)
 
 (define-constant +pode-functions+
-    '(("help"    . help)
-      ("status"  . status)
-      ("gen"     . gen)
+    '(("gen"     . gen)
+      ("help"    . help)
       ("clean"   . clean)
-      ("gen-all" . gen-all)
-      ("index"   . index)) :test #'equal)
+      ("index"   . index)
+      ("status"  . status)
+      ("gen-all" . gen-all))
+  :test #'equal
+  :documentation "The available millipode functions.")
 
 (defun status ()
   "(status) returns NIL, when there is nothing to be done.
@@ -59,21 +61,18 @@ generate the index again.
 
 (defun help ()
   "Lists available commands"
-  (format t 
-          "[commands]: '(help status gen clean gen-all index)
-
-Evaluate \"(describe '<command>)\", e.g. \"(describe 'status)\" for more information."))
+  (format t "[Available commands]: help, status, gen, clean, gen-all and index. ~%"))
 
 (defun cli ()
   (let* ((arg           (second (cmd-line-args)))
          (pode-function (cdr (assoc arg +pode-functions+ :test #'equal))))
     (if pode-function
         (funcall pode-function)
-        (format t "Available commands are: help, status, gen, clean, gen-all and index.~%"))
+        (help))
     (cli-quit)))
 
 (defun make-executable-image ()
   #+sbcl    (sb-ext:save-lisp-and-die +image-file-name+ :toplevel          'cli :executable t)
-  #+clisp   (ext:saveinitmem          +image-file-name+ :init-function     'cli :executable t :quiet t)
   #+clozure (ccl:save-application     +image-file-name+ :toplevel-function 'cli :prepend-kernel t)
+  #+clisp   (ext:saveinitmem          +image-file-name+ :init-function     'cli :executable t :quiet t)
 )

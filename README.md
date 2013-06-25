@@ -41,7 +41,7 @@ Millipode is currently known to build on:
 - ECL 12.12.1
 - ABCL 1.1.1
 
-You'll need [Quicklisp](http://www.quicklisp.org/).
+You'll need to first install [Quicklisp](http://www.quicklisp.org/).
 
 After Quicklisp is installed:
 
@@ -51,15 +51,15 @@ directory by: `git clone https://github.com/samebchase/millipode.git
 
 2. `CL-USER> (ql:quickload :millipode)`
 
-3. That's it! You are now ready to use Millipode.
-
 Quicklisp will pull in all the dependencies of Millipode, and then
 build it.
 
+3. That's it! You are now ready to use Millipode.
+
 ## Running
 
-After Millipode has been built, it can be used from the REPL and also
-as a standalone executable.
+After Millipode has been built, it can be used from the REPL and
+optionally, as a standalone executable.
 
 Do `CL-USER> (in-package :millipode)` to get into the `:millipode`
 package (i.e. namespace). If you don't do this, every command has to
@@ -67,11 +67,14 @@ be prefixed with the package name e.g. `CL-USER> (millipode:help)`.
 
 ### REPL
 
-`MILLIPODE> (help)` to give you the built in documentation.
+You now have access to all of Millipode's functionality.
+
+Try `MILLIPODE> (help)` to start exploring.
 
 ### Command-line
 
-Using Millipode from the command line is the recommended way.
+Instead of using Millipode from the REPL, you may instead prefer to
+use it as a command-line program.
 
 Making executable images is supported on the following
 implementations:
@@ -84,13 +87,45 @@ To make the executable image:
 
 `MILLIPODE> (make-executable-image)`
 
-This will make an executable image in the current working directory
+This will create an executable image in the current working directory
 with a name specified by `+image-file-name+` in `config.lisp`.
 
 This executable image can be put in your `$PATH` e.g. in `~/bin/`.
 
-For example, if `+image-file-name+` is `pode` you can use millipode by:
+For example, if `+image-file-name+` is `"pode"` you can use Millipode by:
 `$ ./pode help`
+
+## Usage
+
+### Quickstart
+
+Edit config.lisp as appropriate and then:
+
+    CL-USER> (ql:quickload :millipode)
+    T
+    CL-USER> (in-package :millipode)
+
+    PODE> (status)
+    ...
+    PODE> (gen)
+
+### Functionality
+
+Millipode's core functionality is in these five functions:
+
+* `(gen)`: Generates the html webpages for the new and modified posts in
+  `+site-content-dir+`. Updates the index, if necessary.
+
+* `(gen-all)`: Generate everything. Not usually necessary, in normal
+  usage of Millipode.
+
+* `(status)`: Prints whether there are any new or modified posts in
+  `+site-content-dir+`.
+
+* `(index)`: Generates the index.
+
+* `(clean)`: Deletes files from `+site-webpage-dir+` that don't have a
+  corresponding content post in `+site-content-dir+`.
 
 ## Post format
 
