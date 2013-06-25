@@ -119,7 +119,7 @@ Millipode's core functionality is in these five functions:
 * `(gen-all)`: Generate everything. Not usually necessary, in normal
   usage of Millipode.
 
-* `(status): Prints whether there are any new or modified posts in
+* `(status)`: Prints whether there are any new or modified posts in
   `+site-content-dir+`.
 
 * `(index)`: Generates the index.
