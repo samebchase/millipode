@@ -113,17 +113,18 @@ Edit config.lisp as appropriate and then:
 
 Millipode's core functionality is in these five functions:
 
-* gen: Generates the html webpages for the new and modified posts in
-  `+site-content-dir+`. Updates index, if necessary.
+* `(gen)`: Generates the html webpages for the new and modified posts in
+  `+site-content-dir+`. Updates the index, if necessary.
 
-* gen-all: Generate everything. Not usually necessary.
+* `(gen-all)`: Generate everything. Not usually necessary, in normal
+  usage of Millipode.
 
-* status: Prints whether there are any new or modified posts in
+* `(status): Prints whether there are any new or modified posts in
   `+site-content-dir+`.
 
-* index: Generates the index.
+* `(index): Generates the index.
 
-* clean: Deletes files from `+site-webpage-dir+` that don't have a
+* `(clean): Deletes files from `+site-webpage-dir+` that don't have a
   corresponding content post in `+site-content-dir+`.
 
 ## Post format
