@@ -3,7 +3,9 @@
 (defclass pode ()
   ((content-dir  :accessor content-dir  :initarg :content-dir)
    (webpage-dir  :accessor webpage-dir  :initarg :webpage-dir)
-   (template-dir :accessor template-dir :initarg :template-dir))
+   (template-dir :accessor template-dir :initarg :template-dir)
+   (post-template-file :accessor post-template-file :initarg :post-template-file)
+   (index-template-file :accessor index-template-file :initarg :index-template-file))
   (:documentation
    "A pode is a simple compound type consisting of two pathspecs
 content-dir, webpage-dir and template-dir.
@@ -15,7 +17,9 @@ the html templates are."))
 (defmacro with-existing-pode-slots (pode &body body)
   `(with-accessors ((content-dir content-dir)
                     (webpage-dir webpage-dir)
-                    (template-dir template-dir)) ,pode
+                    (template-dir template-dir)
+                    (post-template-file post-template-file)
+                    (index-template-file index-template-file)) ,pode
      (check-type ,pode pode)
      (assert (and (directory-exists-p content-dir)
                   (directory-exists-p webpage-dir)
@@ -32,8 +36,3 @@ the html templates are."))
 (defmethod make-load-form ((pode pode) &optional env)
   (declare (ignore env))
   (make-load-form-saving-slots pode))
-
-(defun pode-equal (pode-a pode-b)
-  (and (fad:pathname-equal (content-dir  pode-a) (content-dir  pode-b))
-       (fad:pathname-equal (webpage-dir  pode-a) (webpage-dir  pode-b))
-       (fad:pathname-equal (template-dir pode-a) (template-dir pode-a))))

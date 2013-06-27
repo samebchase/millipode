@@ -29,7 +29,6 @@
 (defparameter *image-file-name* "pode"
   "The filename of the executable image")
 
-
 (defparameter *site-pode*
   (make-instance
    'pode
@@ -38,6 +37,10 @@
    :webpage-dir
    (pathname-as-directory *site-webpage-dir*)
    :template-dir
-   (pathname-as-directory *site-template-dir*))
+   (pathname-as-directory *site-template-dir*)
+   :post-template-file
+   (pathname-as-file      *post-template-file*)
+   :index-template-file
+   (pathname-as-file      *index-template-file*))
   "A pode object containing all the necessary
   information to generate webpages.")

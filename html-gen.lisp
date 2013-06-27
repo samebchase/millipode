@@ -5,7 +5,7 @@
   (with-existing-pode-slots pode
     (flet ((webpage (post)
              (file-namestring (corresponding-webpage-file pode post))))
-      (let* ((template-file (merge-pathnames +index-template-file+ template-dir))
+      (let* ((template-file (merge-pathnames index-template-file template-dir))
              (posts   (ls content-dir))
              (sstream (make-string-output-stream))
              (values  (list :posts
@@ -26,7 +26,7 @@
   "A post's HTML returned as a string."
   (check-type file pathname)
   (with-existing-pode-slots pode
-    (let* ((template-file (merge-pathnames +post-template-file+ template-dir))
+    (let* ((template-file (merge-pathnames post-template-file template-dir))
            (sstream (make-string-output-stream))
            (values (list :title (get-post-title file)
                          :post  (markdown-to-html file)))

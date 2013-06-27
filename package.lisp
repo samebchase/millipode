@@ -19,6 +19,7 @@
                 :file-exists-p
                 :pathname-equal
                 :list-directory
+                :pathname-as-file
                 :directory-exists-p
                 :directory-pathname-p
                 :pathname-as-directory)
@@ -38,5 +39,3 @@
   (:import-from :local-time
                 :now
                 :to-rfc3339-timestring))
-
- 
