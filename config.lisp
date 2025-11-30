@@ -3,18 +3,18 @@
 ;;;; Directory configuration
 
 (define-constant +site-content-dir+
-    #P"/home/samuel/projects/samebchase.com/site/content/"
+    #P"/home/samuel/projects/samebchase.com/content/"
     :test #'pathname-equal
     :documentation "This directory should contain all the text files.")
 
 (define-constant +site-webpage-dir+
-    #P"/home/samuel/projects/samebchase.com/site/p/"
+    #P"/home/samuel/projects/samebchase.com/p/"
     :test #'pathname-equal
     :documentation
     "This directory is where the webpages should be generated in.")
 
 (define-constant +site-template-dir+
-    #P"/home/samuel/projects/samebchase.com/site/templates/"
+    #P"/home/samuel/projects/samebchase.com/templates/articles/"
     :test #'pathname-equal
     :documentation "The directory that contains the HTML templates.")
 
@@ -48,3 +48,30 @@
   :test #'pode-equal
   :documentation "A pode object containing all the necessary
   information to generate webpages.")
+
+;;; Configuration for the notes
+
+(define-constant +notes-content-dir+
+    #P"/home/samuel/projects/samebchase.com/notes/"
+    :test #'pathname-equal
+    :documentation "This directory should contain all the text files for the notes.")
+
+(define-constant +notes-webpage-dir+
+    #P"/home/samuel/projects/samebchase.com/n/"
+    :test #'pathname-equal
+    :documentation
+    "This directory is where the notes webpages should be generated in.")
+
+(define-constant +notes-template-dir+
+    #P"/home/samuel/projects/samebchase.com/templates/notes/"
+    :test #'pathname-equal
+    :documentation "The directory that contains the HTML templates for the notes.")
+
+(define-constant +notes-pode+
+    (make-instance 'pode
+		   :content-dir
+		   (uiop:pathname-directory-pathname +notes-content-dir+)
+		   :webpage-dir
+		   (uiop:pathname-directory-pathname +notes-webpage-dir+)
+		   :template-dir
+		   (uiop:pathname-directory-pathname +notes-template-dir+)))

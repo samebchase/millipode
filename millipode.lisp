@@ -10,7 +10,7 @@
   :test #'equal
   :documentation "The available millipode functions.")
 
-(defun status ()
+(defun status (pode)
   "(status) returns NIL, when there is nothing to be done.
 
 The three other statuses are: new, modified and orphaned.
@@ -30,34 +30,34 @@ time their corresponding html files have been generated.
 List of webpages in *WEBPAGE-DIR* for which a corresponding file in
 CONTENT-DIR does not exist.
 "
-  (let ((modified (list-modified-content  +site-pode+))
-        (new      (list-new-content       +site-pode+))
-        (orphaned (list-orphaned-webpages +site-pode+)))
+  (let ((modified (list-modified-content  pode))
+        (new      (list-new-content       pode))
+        (orphaned (list-orphaned-webpages pode)))
     (print-list-files "[new]" new)
     (print-list-files "[modified]" modified)
     (print-list-files "[orphaned]" orphaned)))
 
-(defun gen ()
+(defun gen (pode)
   "Generates new and modified posts. It updates the index, if necessary."
-  (generate-new-posts      +site-pode+)
-  (generate-modified-posts +site-pode+))
+  (generate-new-posts      pode)
+  (generate-modified-posts pode))
 
-(defun gen-all ()
+(defun gen-all (pode)
   "Generates all posts and updates the index."
-  (generate-all-posts +site-pode+))
+  (generate-all-posts pode))
 
-(defun clean ()
+(defun clean (pode)
   "Deletes orphaned webpages and updates the index."
-  (delete-orphaned-webpages +site-pode+))
+  (delete-orphaned-webpages pode))
 
-(defun index ()
+(defun index (pode)
   "
 Updates the index.
 
 You normally won't need to run this, unless you really want to
 generate the index again.
 "
-  (generate-post-index +site-pode+))
+  (generate-post-index pode))
 
 (defun help ()
   "Lists available commands"
